@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 68, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 68, 10 )
 
 [node name="ROOM_STAIRCASE" type="Node2D"]
 
@@ -18,7 +26,17 @@ spawn_id = 2
 on_enter_load_scene = "res://Scenes/rooms/ROOM_HALL.tscn"
 on_enter_set_spawn_point = 1
 
+[node name="CollisionShape2D" parent="DoorWest" index="0"]
+shape = SubResource( 1 )
+
 [node name="DoorSouth" parent="." instance=ExtResource( 3 )]
 on_enter_load_scene = "res://Scenes/rooms/ROOM_BEDROOM.tscn"
 on_enter_set_spawn_point = 3
 
+[node name="CollisionShape2D" parent="DoorSouth" index="0"]
+shape = SubResource( 2 )
+
+
+[editable path="DoorWest"]
+
+[editable path="DoorSouth"]

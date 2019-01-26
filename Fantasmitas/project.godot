@@ -8,15 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://Scenes/spawn/spawn_point.gd"
+} ]
 _global_script_class_icons={
-
+"SpawnPoint": ""
 }
 
 [application]
 
 config/name="Fantasmitas"
-run/main_scene="res://Scenes/main/Main.tscn"
+run/main_scene="res://Scenes/rooms/ROOM_ROAD.tscn"
 config/icon="res://icon.png"
 
 [autoload]

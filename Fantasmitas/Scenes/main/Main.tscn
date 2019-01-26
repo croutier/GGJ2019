@@ -7,7 +7,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="ghost" parent="." instance=ExtResource( 1 )]
-position = Vector2( 443.528, 263.973 )
+position = Vector2( 543.977, 256.798 )
+ghost_id = 2
 
 [node name="item" parent="." instance=ExtResource( 2 )]
 position = Vector2( 377.6, 341.258 )

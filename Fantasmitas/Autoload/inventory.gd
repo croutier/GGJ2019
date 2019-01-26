@@ -1,7 +1,7 @@
 extends Node
 
 # List of items in the game
-enum Items {ITEM_KEY, ITEM_FATHRES_ASHES, ITEM_COLLAR, ITEM_NECKLACE, ITEM_TEDDY_BEAR, ITEM_RING, ITEM_LETTER}
+enum Items {ITEM_KEY, ITEM_FATHERS_ASHES, ITEM_COLLAR, ITEM_NECKLACE, ITEM_TEDDY_BEAR, ITEM_RING, ITEM_LETTER}
 
 var items_allowed_to_hold = []
 

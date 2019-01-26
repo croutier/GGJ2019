@@ -96,3 +96,4 @@ func set_spawn_point(spawn):
 	
 func clear_spawn_point():
 	spawn_point = null
+	

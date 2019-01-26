@@ -19,6 +19,10 @@ config/name="Fantasmitas"
 run/main_scene="res://Scenes/main/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Inventory="*res://Autoload/inventory.gd"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

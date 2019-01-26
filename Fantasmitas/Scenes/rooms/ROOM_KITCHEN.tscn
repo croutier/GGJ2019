@@ -27,7 +27,6 @@ position = Vector2( -244.519, 668.599 )
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 157.278, 147.22 )
 ghost_id = 2
-ghost_status_id = 0
 
 [node name="GhostSpawnPoint2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 432.317, 142.436 )
@@ -43,6 +42,7 @@ position = Vector2( 484.513, 600.62 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_DINING_ROOM.tscn"
 
 [node name="CollisionShape2D" parent="Door" index="0"]
+position = Vector2( 0, -3.09088 )
 shape = SubResource( 1 )
 
 

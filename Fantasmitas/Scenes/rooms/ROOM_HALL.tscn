@@ -32,7 +32,6 @@ position = Vector2( -301.715, 602.244 )
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 499.017, 254.121 )
 ghost_id = 4
-ghost_status_id = 0
 
 [node name="GhostSpawnPoint2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 306.696, 354.975 )
@@ -49,7 +48,6 @@ spawn_id = 1
 
 [node name="SpawnPoint3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 533.622, 72.7806 )
-spawn_id = 0
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true

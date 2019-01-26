@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "Door",
-"language": "GDScript",
-"path": "res://Scenes/doors/door.gd"
-}, {
 "base": "StaticBody2D",
 "class": "Ghost",
 "language": "GDScript",
@@ -30,7 +25,6 @@ _global_script_classes=[ {
 "path": "res://Scenes/spawn/spawn_point.gd"
 } ]
 _global_script_class_icons={
-"Door": "",
 "Ghost": "",
 "GhostSpawnPoint": "",
 "SpawnPoint": ""

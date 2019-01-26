@@ -8,15 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "Ghost",
+"language": "GDScript",
+"path": "res://Scenes/ghost/ghost.gd"
+}, {
+"base": "Node",
+"class": "GhostSpawnPoint",
+"language": "GDScript",
+"path": "res://Scenes/spawn/ghost_spawn_point.gd"
+}, {
+"base": "Node2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://Scenes/spawn/spawn_point.gd"
+} ]
 _global_script_class_icons={
-
+"Ghost": "",
+"GhostSpawnPoint": "",
+"SpawnPoint": ""
 }
 
 [application]
 
 config/name="Fantasmitas"
-run/main_scene="res://Scenes/main/Main.tscn"
+run/main_scene="res://Scenes/rooms/ROOM_ROAD.tscn"
 config/icon="res://icon.png"
 
 [autoload]

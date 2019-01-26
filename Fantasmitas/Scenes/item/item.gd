@@ -3,7 +3,7 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export(int, "ITEM_KEY", "ITEM_FATHRES_ASHES", "ITEM_COLLAR", "ITEM_NECKLACE", "ITEM_TEDDY_BEAR", "ITEM_RING", "ITEM_LETTER") var type
+export(int, "ITEM_KEY", "ITEM_FATHERS_ASHES", "ITEM_COLLAR", "ITEM_NECKLACE", "ITEM_TEDDY_BEAR", "ITEM_RING", "ITEM_LETTER") var type = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

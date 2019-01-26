@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/spawn/ghost_spawn_point.gd" type="Script" id=1]
+
+[node name="GhostSpawnPoint" type="Node2D"]
+script = ExtResource( 1 )
+ghost_id = null
+ghost_status_id = null
+

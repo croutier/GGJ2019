@@ -77,13 +77,13 @@ func get_room_status(room):
 	return room_status[room]
 	
 func set_fulfilled_ghost_request(ghost):
-	ghosts_quests_fulfilled.add(ghost)
+	ghosts_quests_fulfilled.append(ghost)
 
 func are_all_ghost_requests_fulfilled():
 	return Ghosts.size() == ghosts_quests_fulfilled.size()
 	
 func add_current_ghost_quests(ghost):
-	current_ghost_quests.add(ghost)
+	current_ghost_quests.append(ghost)
 	
 func remove_current_ghost_quest(ghost):
 	var index = current_ghost_quests.find(ghost)

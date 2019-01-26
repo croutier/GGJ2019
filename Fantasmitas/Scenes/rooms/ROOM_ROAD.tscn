@@ -40,6 +40,10 @@ shape = SubResource( 1 )
 position = Vector2( -3342.16, 564.448 )
 spawn_id = 3
 
+[node name="SpawnPoint1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4461.47, 554.392 )
+spawn_id = 1
+
 [node name="Character" parent="." instance=ExtResource( 6 )]
 position = Vector2( -3871.14, 1494.88 )
 

@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/ghost/ghost.gd" type="Script" id=1]
 [ext_resource path="res://art/ghost.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 16.4363, 22.4017 )
+extents = Vector2( 61.2089, 90.0974 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "fade"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "fade_ended"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 
@@ -38,9 +57,10 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 3
-frame = 1
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
+anims/fade = SubResource( 3 )
 anims/idle = SubResource( 2 )
 

@@ -5,6 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
+extents = Vector2( 16.9993, 17.7504 )
 
 [sub_resource type="Animation" id=2]
 
@@ -33,7 +34,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4

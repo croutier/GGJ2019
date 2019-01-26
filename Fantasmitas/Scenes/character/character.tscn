@@ -31,7 +31,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( 0, 27 ) ]
+"values": [ Vector2( 0, 108 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -62,7 +62,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -27, 0 ) ]
+"values": [ Vector2( -108, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -93,7 +93,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 27, 0 ) ]
+"values": [ Vector2( 108, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -124,7 +124,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -27 ) ]
+"values": [ Vector2( 0, -108 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -153,15 +153,16 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 27 ) ]
+"values": [ Vector2( 0, 108 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=6]
 
+extents = Vector2( 40, 40 )
 
 [sub_resource type="RectangleShape2D" id=7]
 
-extents = Vector2( 15, 15 )
+extents = Vector2( 60, 60 )
 
 [node name="Character" type="KinematicBody2D"]
 z_index = 1
@@ -175,10 +176,9 @@ anims/U_walk_anim = SubResource( 4 )
 anims/idle = SubResource( 5 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -50 )
 
 [node name="Sprite" type="Sprite" parent="Position2D"]
-position = Vector2( 0.60051, -2.71489 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
@@ -189,7 +189,7 @@ region_rect = Rect2( 582, 102, 1, 1 )
 shape = SubResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, 27 )
+position = Vector2( 0, -108 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 7 )

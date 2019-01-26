@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ghost" parent="." instance=ExtResource( 1 )]
+position = Vector2( 443.528, 263.973 )
+
+[node name="item" parent="." instance=ExtResource( 2 )]
+position = Vector2( 377.6, 341.258 )
+
+[node name="Character" parent="." instance=ExtResource( 3 )]
+position = Vector2( 178.155, 241.536 )
+

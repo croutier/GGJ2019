@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -46,6 +48,19 @@ spawn_id = 1
 
 [node name="Character" parent="." instance=ExtResource( 6 )]
 position = Vector2( -3871.14, 1494.88 )
+
+[node name="Ghost" parent="." instance=ExtResource( 7 )]
+position = Vector2( -693.586, 1981.37 )
+
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 8 )]
+position = Vector2( -132.555, 1812 )
+ghost_id = 1
+ghost_status_id = 0
+
+[node name="GhostSpawnPoint1" parent="." instance=ExtResource( 8 )]
+position = Vector2( 417.891, -527.391 )
+ghost_id = 1
+ghost_status_id = 1
 
 
 [editable path="Door"]

@@ -4,6 +4,8 @@ enum Ghosts {GHOST_BUTLER, GHOST_MOTHER, GHOST_COOK, GHOST_DAUGHTER, GHOST_DOG, 
 
 enum GhostStatus {GHOST_STATUS_BLOB, GHOST_STATUS_HUMAN, GHOST_STATUS_ALIVE}
 
+enum SpawnPoints {SPAWN_NORTH, SPAWN_EAST, SPAWN_SOUTH, SPAN_WEST}
+
 enum Rooms {ROOM_ROAD, 
 	ROOM_CASTLE_DOOR, 
 	ROOM_MAIN_LOBBY, 
@@ -57,6 +59,8 @@ var current_ghost_quests = []
 
 var ghosts_quests_fulfilled = []
 
+var spawn_point = null
+
 func set_ghost_status(ghost, status):
 	ghost_status[ghost] = status
 
@@ -85,3 +89,10 @@ func remove_current_ghost_quest(ghost):
 	var index = current_ghost_quests.find(ghost)
 	if index > -1:
 		current_ghost_quests.remove(index)
+		
+
+func set_spawn_point(spawn):
+	spawn_point = spawn
+	
+func clear_spawn_point():
+	spawn_point = null

@@ -27,8 +27,7 @@ func _change_state():
 	$AnimationPlayer.play("fade")
 	pass
 
-func fade_ended():
-	
+func fade_ended():	
 	pass
 func _show_item_needed():
 	pass

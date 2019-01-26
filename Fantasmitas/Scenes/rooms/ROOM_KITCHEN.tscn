@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=2]
+
+[node name="ROOM_KITCHEN" type="Node2D"]
+
+[node name="GHOST_COOK" parent="." instance=ExtResource( 1 )]
+position = Vector2( 469.371, 254.115 )
+ghost_id = 2
+
+[node name="ITEM_COLLAR" parent="." instance=ExtResource( 2 )]
+position = Vector2( 742.668, 312.678 )
+type = 2
+

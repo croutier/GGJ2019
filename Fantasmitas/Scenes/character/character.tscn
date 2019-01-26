@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/character/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/character/character.gd" type="Script" id=1]
 [ext_resource path="res://art/character.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -182,14 +182,14 @@ position = Vector2( 0.60051, -2.71489 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 10
+frame = 2
 region_rect = Rect2( 582, 102, 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 27, 0 )
+position = Vector2( 0, 27 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 7 )

@@ -52,7 +52,7 @@ var room_status = {
 	ROOM_BASEMENT: ROOM_STATUS_PRESENT
 }
 
-var current_ghost_quest = null
+var current_ghost_quests = []
 
 var ghosts_quests_fulfilled = []
 
@@ -61,6 +61,9 @@ func set_ghost_status(ghost, status):
 
 func get_ghost_status(ghost):
 	return ghost_status[ghost]
+
+func get_ghost_item(ghost):
+	return ghost_items[ghost]
 
 func set_room_status(room, status):
 	room_status[room] = status
@@ -74,5 +77,10 @@ func set_fulfilled_ghost_request(ghost):
 func are_all_ghost_requests_fulfilled():
 	return Ghosts.size() == ghosts_quests_fulfilled.size()
 	
-func set_current_ghost_quest(ghost):
-	current_ghost_quest = ghost
+func add_current_ghost_quests(ghost):
+	current_ghost_quests.add(ghost)
+	
+func remove_current_ghost_quest(ghost):
+	var index = current_ghost_quests.find(ghost)
+	if index > -1:
+		current_ghost_quests.remove(index)

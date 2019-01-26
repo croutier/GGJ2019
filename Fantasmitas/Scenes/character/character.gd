@@ -32,7 +32,7 @@ func _process(delta):
 		_set_anim("stop")
 		pass
 
-	move_and_collide(movement *100 *delta)
+	move_and_collide(movement *800 *delta)
 	pass
 
 func _set_anim(anim):

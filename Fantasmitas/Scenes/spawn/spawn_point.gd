@@ -1,6 +1,7 @@
 extends Node2D
+class_name SpawnPoint
 
-export var spawn_id = 0
+export (int, "SPAWN_NORTH", "SPAWN_EAST", "SPAWN_SOUTH", "SPAN_WEST")var spawn_id = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

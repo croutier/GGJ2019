@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/ref_room_lobby.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=3]
 
 [node name="ROOM_MAIN_LOBBY" type="Node2D"]
+position = Vector2( 1735.24, -1198.33 )
+z_index = -1
 
 [node name="GHOST_MOTHER" parent="." instance=ExtResource( 1 )]
-position = Vector2( 407.554, 234.593 )
+position = Vector2( 216.963, -936.181 )
 ghost_id = 1
+
+[node name="ref_room_lobby" type="Sprite" parent="."]
+position = Vector2( 316.456, 293.158 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="SpawnPoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 231.85, 1638.11 )
 

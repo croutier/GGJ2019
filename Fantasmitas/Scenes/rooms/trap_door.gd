@@ -8,13 +8,16 @@ extends Area2D
 func _ready():
 	if(Quest.trap_door_open):
 		get_parent().get_node("TrapDoor").is_active = true
-	connect("body_entered", self, "_on_body_enter")
-	pass # Replace with function body.
-func _on_body_enter ():
-	if(Quest.get_fulfilled_ghost_request(Quest.Ghosts.GHOST_DOG)):
-		Quest.open_trap_door()
-		get_parent().get_node("TrapDoor").is_active = true
-	pass
+	
+	pass # Replace with function body.	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Area2D_body_entered(body):
+	if(Quest.get_fulfilled_ghost_request(Quest.Ghosts.GHOST_DOG)):
+		Quest.open_trap_door()
+		get_parent().get_node("TrapDoor").is_active = true
+	pass # Replace with function body.

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GGJ 2019 Tema fuera de casa - Parte 2 (loop).ogg-6fbb1eb57425582ece86392ba58238ef.oggstr"
+
+[deps]
+
+source_file="res://music/GGJ 2019 Tema fuera de casa - Parte 2 (loop).ogg"
+dest_files=[ "res://.import/GGJ 2019 Tema fuera de casa - Parte 2 (loop).ogg-6fbb1eb57425582ece86392ba58238ef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

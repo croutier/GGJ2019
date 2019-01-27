@@ -31,6 +31,7 @@ position = Vector2( 369.177, 186.604 )
 
 [node name="ref_room_road" type="Sprite" parent="."]
 position = Vector2( 573.795, 175.929 )
+z_index = -1
 texture = ExtResource( 3 )
 
 [node name="Door" parent="." instance=ExtResource( 4 )]
@@ -66,7 +67,7 @@ position = Vector2( 417.891, -527.391 )
 ghost_id = 1
 ghost_status_id = 1
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -334.599, -972.672 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
@@ -81,7 +82,7 @@ position = Vector2( -2147.66, 373.506 )
 shape = SubResource( 2 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( 46.9812, -67.5356 )
+position = Vector2( 101.539, -54.1855 )
 polygon = PoolVector2Array( -2.43652, -25.3538, -49.418, -54.717, -3289.35, -42.9064, -3273.05, 2424.14, -3202.41, 2424.14, -3229.58, 5.99988 )
 
 

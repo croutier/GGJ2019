@@ -38,11 +38,11 @@ type = 3
 
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 5 )]
 position = Vector2( 39.5787, 135.037 )
-ghost_id = 3
+ghost_id = 4
 
 [node name="GhostSpawnPoint2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -199.394, 1290.37 )
-ghost_id = 3
+ghost_id = 4
 ghost_status_id = 1
 
 [node name="Character" parent="." instance=ExtResource( 6 )]

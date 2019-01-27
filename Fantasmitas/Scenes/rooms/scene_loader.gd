@@ -4,6 +4,7 @@ extends Node2D
 func _ready():
 	_spawn_character()
 	_spawn_ghosts()
+	_spawn_items()
 	pass
 	 # Replace with function body.
 	
@@ -31,7 +32,16 @@ func _spawn_ghosts():
 			ghost.global_position = ghost_pos
 		else:
 			printerr("No spawnpoint found for ghost id %d. Skipping" % [ghost.ghost_id])
-
+	pass
+	
+func _spawn_items():
+	var items = get_tree().get_nodes_in_group("item")
+	
+	for item in items:
+		item.enabled = Inventory.is_active(item.type)
+		
+	pass
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

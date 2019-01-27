@@ -58,6 +58,7 @@ shape = SubResource( 1 )
 position = Vector2( 1978.74, -811.599 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_MAIN_LOBBY.tscn"
 on_enter_set_spawn_point = 2
+is_active = false
 
 [node name="CollisionShape2D" parent="Door2" index="0"]
 position = Vector2( -3.25366, 3.25348 )

@@ -32,7 +32,9 @@ func _process(delta):
 		_set_anim("stop")
 		pass
 
-	move_and_collide(movement *800 *delta)
+	#move_and_collide(movement *800 *delta)
+	var running = int (Input.is_key_pressed(KEY_SHIFT))
+	move_and_slide(movement * (800 + 1000 * running))
 	pass
 
 func _set_anim(anim):

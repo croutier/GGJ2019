@@ -4,28 +4,46 @@ extends Node2D
 func _ready():
 	_spawn_character()
 	_spawn_ghosts()
+	_spawn_items()
 	pass
 	 # Replace with function body.
 	
 func _spawn_character():
-	var spawnpoint
-	for child in get_children():
-		if child is SpawnPoint and child.spawn_id == Quest.spawn_point:
-			spawnpoint = child.global_position
-	$Character.global_position = spawnpoint
+	var char_pos
+	var spawnpoints = get_tree().get_nodes_in_group("spawnpoint")
+	for spawnpoint in spawnpoints:
+		if spawnpoint.spawn_id == Quest.spawn_point:
+			char_pos = spawnpoint.global_position
+	if char_pos is Vector2:
+		$Character.global_position = char_pos
+	else:
+		printerr("No spawnpoint found for character. :(")
 	pass
 	
 func _spawn_ghosts():
-	for child in get_children():
-		var spawnpoint
-		if child is Ghost :
-			for spawn_child in get_children():
-				if spawn_child is GhostSpawnPoint and spawn_child.ghost_id == child.ghost_id and spawn_child.ghost_status_id == Quest.get_ghost_status(child.ghost_id):
-					spawnpoint = spawn_child.global_position
-		
-			child.global_position = spawnpoint
-			
+	var ghosts = get_tree().get_nodes_in_group("ghost")
+	var spawnpoints = get_tree().get_nodes_in_group("ghostspawnpoint")
+	for ghost in ghosts:
+		var ghost_pos
+		for spawnpoint in spawnpoints:
+			if  spawnpoint.ghost_id == ghost.ghost_id and spawnpoint.ghost_status_id == Quest.get_ghost_status(ghost.ghost_id):
+				ghost_pos = spawnpoint.global_position
+		if ghost_pos is Vector2:
+			ghost.global_position = ghost_pos
+		else:
+			printerr("No spawnpoint found for ghost id %d. Skipping" % [ghost.ghost_id])
 	pass
+	
+func _spawn_items():
+	var items = get_tree().get_nodes_in_group("item")
+	
+	for item in items:
+		item.enabled = Inventory.is_active(item.type)
+		
+	pass
+	
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

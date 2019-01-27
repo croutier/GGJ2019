@@ -1,12 +1,14 @@
 extends StaticBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export(int, "ITEM_KEY", "ITEM_FATHERS_ASHES", "ITEM_COLLAR", "ITEM_NECKLACE", "ITEM_TEDDY_BEAR", "ITEM_RING", "ITEM_LETTER") var type = 0
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+export(bool) var enabled = false setget set_enabled, get_enabled
+
+const inventory = preload("res://Autoload/inventory.gd")
+#export(int, "ITEM_KEY", "ITEM_FATHERS_ASHES", "ITEM_COLLAR", "ITEM_NECKLACE", "ITEM_TEDDY_BEAR", "ITEM_RING", "ITEM_LETTER") var type = 0
+export(inventory.Items) var type = 0
+
+func set_enabled(val:bool):
+	visible = val
+	$col.disabled = !val
+
+func get_enabled() -> bool:
+	return visible

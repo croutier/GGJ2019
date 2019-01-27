@@ -6,6 +6,8 @@ enum GhostStatus {GHOST_STATUS_BLOB, GHOST_STATUS_HUMAN, GHOST_STATUS_ALIVE}
 
 enum SpawnPoints {SPAWN_NORTH, SPAWN_EAST, SPAWN_SOUTH, SPAWN_WEST}
 
+var trap_door_open = false
+
 enum Rooms {ROOM_ROAD, 
 	ROOM_CASTLE_DOOR, 
 	ROOM_MAIN_LOBBY, 
@@ -72,13 +74,16 @@ func get_ghost_item(ghost):
 
 func set_room_status(room, status):
 	room_status[room] = status
-
+func open_trap_door():
+	trap_door_open = true
+	
 func get_room_status(room):
 	return room_status[room]
 	
 func set_fulfilled_ghost_request(ghost):
 	ghosts_quests_fulfilled.append(ghost)
-
+func get_fulfilled_ghost_request(ghost):
+	return ghost in ghosts_quests_fulfilled
 func are_all_ghost_requests_fulfilled():
 	return Ghosts.size() == ghosts_quests_fulfilled.size()
 	

@@ -1,42 +1,63 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
+[ext_resource path="res://art/ref_room_stairs.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 68, 10 )
+extents = Vector2( 41.2848, 123.008 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 68, 10 )
+extents = Vector2( 38.0243, 78.9553 )
 
 [node name="ROOM_STAIRCASE" type="Node2D"]
+script = ExtResource( 1 )
 
-[node name="Character" parent="." instance=ExtResource( 1 )]
+[node name="ref_room_stairs" type="Sprite" parent="."]
+position = Vector2( 519.26, 505.557 )
+texture = ExtResource( 2 )
 
-[node name="SpawnWest" parent="." instance=ExtResource( 2 )]
+[node name="Character" parent="." instance=ExtResource( 3 )]
+position = Vector2( -539.258, 830.857 )
+
+[node name="SpawnWest" parent="." instance=ExtResource( 4 )]
+position = Vector2( 297.398, 1098.56 )
 spawn_id = 3
 
-[node name="SpawnSouth" parent="." instance=ExtResource( 2 )]
-spawn_id = 2
+[node name="SpawnSouth" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1101.35, 30.4261 )
+spawn_id = 1
 
-[node name="DoorWest" parent="." instance=ExtResource( 3 )]
+[node name="DoorWest" parent="." instance=ExtResource( 5 )]
+position = Vector2( -209.717, 1170.9 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_HALL.tscn"
 on_enter_set_spawn_point = 1
 
 [node name="CollisionShape2D" parent="DoorWest" index="0"]
 shape = SubResource( 1 )
 
-[node name="DoorSouth" parent="." instance=ExtResource( 3 )]
+[node name="DoorEast" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1212.87, 39.0677 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_BEDROOM.tscn"
 on_enter_set_spawn_point = 3
 
-[node name="CollisionShape2D" parent="DoorSouth" index="0"]
+[node name="CollisionShape2D" parent="DoorEast" index="0"]
 shape = SubResource( 2 )
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PoolVector2Array( 1250, 120, 820, 120, 460, 510, 460, 1290, -250, 1290, -270.932, 1678.43, 1235.59, 1678.43 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( 0, 4.20477 )
+polygon = PoolVector2Array( 1260, -50, 810, -50, 450, 290, 160, 290, 160, 1060, -260, 1060, -255.753, -382.134, 1265.95, -378.339 )
 
 
 [editable path="DoorWest"]
 
-[editable path="DoorSouth"]
+[editable path="DoorEast"]

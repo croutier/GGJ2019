@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/ref_room_small_lobby.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,70 +14,146 @@ extents = Vector2( 118.966, 28.8402 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 25.2352, 79.3105 )
+extents = Vector2( 25.2352, 108.152 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 32.4451, 108.151 )
 
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 918.585, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 208.264, 133.264 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 184.347, 118.915 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+extents = Vector2( 177.173, 118.915 )
+
+[sub_resource type="CircleShape2D" id=8]
+
+radius = 96.1763
+
 [node name="ROOM_HALL" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="GHOST_DOG" parent="." instance=ExtResource( 2 )]
-position = Vector2( -288.703, 335.453 )
-ghost_id = 4
+[node name="ref_room_small_lobby" type="Sprite" parent="."]
+position = Vector2( 454.749, 638.374 )
+texture = ExtResource( 2 )
 
-[node name="Character" parent="." instance=ExtResource( 3 )]
-position = Vector2( -301.715, 602.244 )
+[node name="GHOST_DAUGHTER" parent="." instance=ExtResource( 3 )]
+position = Vector2( -977.262, 331.848 )
+ghost_id = 3
 
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 499.017, 254.121 )
-ghost_id = 4
-ghost_status_id = 0
+[node name="Character" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1011.9, 659.924 )
 
-[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 4 )]
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1390.42, 750.401 )
+ghost_id = 3
+
+[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 306.696, 354.975 )
-ghost_id = 4
+ghost_id = 3
 ghost_status_id = 1
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 5 )]
-position = Vector2( 39.7335, 299.897 )
+[node name="SpawnPoint" parent="." instance=ExtResource( 6 )]
+position = Vector2( -544.28, 937.985 )
 spawn_id = 3
 
-[node name="SpawnPoint2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 973.435, 303.502 )
+[node name="SpawnPoint2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1341.15, 743.314 )
 spawn_id = 1
 
-[node name="SpawnPoint3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 533.622, 72.7806 )
-spawn_id = 0
+[node name="SpawnPoint3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 414.656, 180.931 )
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
+[node name="Door" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( 508.387, -2.92493 )
+position = Vector2( 403.841, 79.9905 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_PLAYROOM.tscn"
 on_enter_set_spawn_point = 2
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 1 )
 
-[node name="Door2" parent="." instance=ExtResource( 6 )]
+[node name="Door2" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( -35.972, 303.502 )
+position = Vector2( -619.985, 930.775 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_DINING_ROOM.tscn"
 on_enter_set_spawn_point = 1
 
 [node name="CollisionShape2D" parent="Door2" index="0"]
 shape = SubResource( 2 )
 
-[node name="Door3" parent="." instance=ExtResource( 6 )]
+[node name="Door3" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( 1045.54, 321.527 )
+position = Vector2( 1451.21, 750.524 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_STAIRCASE.tscn"
 on_enter_set_spawn_point = 3
 
 [node name="CollisionShape2D" parent="Door3" index="0"]
 shape = SubResource( 3 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+editor/display_folded = true
+mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( 260.69, 83.7079 )
+build_mode = 1
+polygon = PoolVector2Array( 270.447, -25.6399, 260.88, -51.9481, -891.898, -47.1648, -894.289, 1426.09, 1251.02, 1438.05, 1215.15, -54.3398, 265.663, -49.5565, 268.055, -4.11505, 1174.49, 5.45157, 1193.63, 1411.74, -865.589, 1397.39, -856.022, -23.2483 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( -583.564, 255.907 )
+build_mode = 1
+polygon = PoolVector2Array( 14.5397, -1.72336, 1796.32, 7.84326, 1796.32, 342.675, 1772.41, 337.892, 1765.23, 19.8015, -21.3351, 26.9765, -16.5518, -13.6816 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( -590.739, 1301.06 )
+scale = Vector2( 1, -1 )
+build_mode = 1
+polygon = PoolVector2Array( 14.5397, -1.72336, 1796.32, 7.84326, 1793.93, 427.437, 1767.62, 410.696, 1765.23, 19.8015, -21.3351, 26.9765, -16.5518, -13.6816 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( 1198.22, 810.771 )
+build_mode = 1
+polygon = PoolVector2Array( -30.9016, 0.668396, -303.55, 158.518, -308.334, 235.05, -16.5518, 235.05, -6.98511, 15.0183 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( 1193.44, 585.955 )
+build_mode = 1
+polygon = PoolVector2Array( -26.1183, -1.72339, -296.375, 144.168, -298.767, 201.567, -277.242, 192.001, -277.242, 153.734, -6.98523, 10.2349 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 284.607, 475.939 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -358.748, 507.031 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 277.432, 511.814 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 913.612, 514.206 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -26.3082, 535.731 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 612.264, 526.164 )
+shape = SubResource( 8 )
 
 
 [editable path="Door"]

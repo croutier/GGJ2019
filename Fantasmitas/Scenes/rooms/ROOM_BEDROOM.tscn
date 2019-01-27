@@ -38,7 +38,7 @@ position = Vector2( -548.069, 825.425 )
 ghost_id = 5
 
 [node name="ITEM_LETTER" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2791.45, 1150.61 )
+position = Vector2( 2726.38, 1183.15 )
 type = 6
 
 [node name="Character" parent="." instance=ExtResource( 7 )]

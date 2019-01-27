@@ -37,7 +37,7 @@ position = Vector2( -982.947, 470.83 )
 ghost_id = 2
 
 [node name="ITEM_COLLAR" parent="." instance=ExtResource( 4 )]
-position = Vector2( 82.2014, 16.6067 )
+position = Vector2( 82.2014, 45.757 )
 type = 2
 
 [node name="Character" parent="." instance=ExtResource( 5 )]

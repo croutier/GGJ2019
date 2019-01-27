@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/spawn/ghost_spawn_point.gd" type="Script" id=1]
-[ext_resource path="res://art/ref_room_bedroom.png" type="Texture" id=2]
+[ext_resource path="res://art/ref_room_bedroom.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=5]

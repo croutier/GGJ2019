@@ -2,26 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ref_room_garden.png-c8f4f443fd58a70601d3c28b9c05b2b5.stex"
+path="res://.import/ref_room_pantry.jpg-ec5c4bbf3e029e1f8f86a12c575fcca6.stex"
 
 [deps]
 
-source_file="res://art/ref_room_garden.png"
-dest_files=[ "res://.import/ref_room_garden.png-c8f4f443fd58a70601d3c28b9c05b2b5.stex" ]
+source_file="res://art/ref_room_pantry.jpg"
+dest_files=[ "res://.import/ref_room_pantry.jpg-ec5c4bbf3e029e1f8f86a12c575fcca6.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

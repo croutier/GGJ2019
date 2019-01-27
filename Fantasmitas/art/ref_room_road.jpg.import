@@ -2,26 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ref_room_lobby.png-f81d6f768f22fee3f3efb0a005544e63.stex"
+path="res://.import/ref_room_road.jpg-4d3b9fa8be4e3d9f6a0d9e3d06107723.stex"
 
 [deps]
 
-source_file="res://art/ref_room_lobby.png"
-dest_files=[ "res://.import/ref_room_lobby.png-f81d6f768f22fee3f3efb0a005544e63.stex" ]
+source_file="res://art/ref_room_road.jpg"
+dest_files=[ "res://.import/ref_room_road.jpg-4d3b9fa8be4e3d9f6a0d9e3d06107723.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=2
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

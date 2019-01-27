@@ -47,9 +47,9 @@ script = ExtResource( 1 )
 position = Vector2( 454.749, 638.374 )
 texture = ExtResource( 2 )
 
-[node name="GHOST_DOG" parent="." instance=ExtResource( 3 )]
+[node name="GHOST_DAUGHTER" parent="." instance=ExtResource( 3 )]
 position = Vector2( -977.262, 331.848 )
-ghost_id = 4
+ghost_id = 3
 
 [node name="Character" parent="." instance=ExtResource( 4 )]
 position = Vector2( -1011.9, 659.924 )

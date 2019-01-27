@@ -1,9 +1,11 @@
 extends Area2D
 class_name Door
 
-enum SpawnPoints {SPAWN_NORTH, SPAWN_EAST, SPAWN_SOUTH, SPAN_WEST}
+const quest = preload("res://Autoload/quest.gd")
+
+#enum SpawnPoints {SPAWN_NORTH, SPAWN_EAST, SPAWN_SOUTH, SPAN_WEST}
 export var on_enter_load_scene = ""
-export (SpawnPoints)var on_enter_set_spawn_point = ""
+export (quest.SpawnPoints)var on_enter_set_spawn_point = ""
 export var is_active = true
 
 

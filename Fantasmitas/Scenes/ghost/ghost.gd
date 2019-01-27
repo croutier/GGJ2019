@@ -1,10 +1,10 @@
 extends StaticBody2D
 class_name Ghost
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-enum Ghosts {GHOST_BUTLER, GHOST_MOTHER, GHOST_COOK, GHOST_DAUGHTER, GHOST_DOG, GHOST_WIFE, GHOST_ARTHUR}
-export(Ghosts) var ghost_id = 0
+
+const quest = preload("res://Autoload/quest.gd")
+
+#enum Ghosts {GHOST_BUTLER, GHOST_MOTHER, GHOST_COOK, GHOST_DAUGHTER, GHOST_DOG, GHOST_WIFE, GHOST_ARTHUR}
+export(quest.Ghosts) var ghost_id = 0
 # Called when the node enters the scene tree for the first time.
 
 func _ready():

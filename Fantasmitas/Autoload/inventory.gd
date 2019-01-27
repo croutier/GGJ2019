@@ -8,7 +8,7 @@ var items_allowed_to_hold = []
 var items_held = []
 
 func add_item_to_inventory(item):
-	if items_allowed_to_hold[item] and items_held.find(item) == -1:
+	if item in items_allowed_to_hold and not item in items_held:
 		items_held.append(item)
 
 func remove_item_from_inventory(item):
@@ -17,7 +17,7 @@ func remove_item_from_inventory(item):
 		items_held.remove(index)
 
 func is_item_in_inventory(item):
-	return items_held.find(item) > -1
+	return item in items_held
 
 func set_items_allowed_to_hold(items: Array):
 	items_allowed_to_hold = items

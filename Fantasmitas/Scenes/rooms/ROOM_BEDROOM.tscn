@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/spawn/ghost_spawn_point.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_bedroom.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
@@ -30,7 +30,7 @@ position = Vector2( -446.641, 2043.25 )
 z_index = -1
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1217.81, 1414.81 )
+position = Vector2( 1124.41, 1408.14 )
 spawn_id = 3
 
 [node name="GHOST_WIFE" parent="." instance=ExtResource( 5 )]
@@ -47,7 +47,7 @@ position = Vector2( -543.403, 343.202 )
 [node name="Door" parent="." instance=ExtResource( 8 )]
 position = Vector2( 971.85, 1414.81 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_STAIRCASE.tscn"
-on_enter_set_spawn_point = 2
+on_enter_set_spawn_point = 1
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 1 )

@@ -5,7 +5,7 @@ const quest = preload("res://Autoload/quest.gd")
 
 #enum SpawnPoints {SPAWN_NORTH, SPAWN_EAST, SPAWN_SOUTH, SPAN_WEST}
 export var on_enter_load_scene = ""
-export (quest.SpawnPoints)var on_enter_set_spawn_point = ""
+export (quest.SpawnPoints)var on_enter_set_spawn_point = 0
 export var is_active = true
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_garden.jpg" type="Texture" id=2]
@@ -10,6 +10,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 57.3374, 149.802 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 156.579, 35.7498 )
 
 [node name="ROOM_GARDEN" type="Node2D"]
 script = ExtResource( 1 )
@@ -36,8 +40,20 @@ position = Vector2( 11.1038, -25.9087 )
 shape = SubResource( 1 )
 
 [node name="ITEM_RING" parent="." instance=ExtResource( 6 )]
-position = Vector2( 427.075, 309.425 )
+position = Vector2( 732.453, 500.286 )
 type = 5
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( -1240.4, 946.066 )
+build_mode = 1
+polygon = PoolVector2Array( 26.7777, -38.218, 23.3364, -356.958, 1156.85, -351.418, 1148.08, -1059.88, 3010.78, -1068.29, 2993.96, 378.137, 33.828, 407.57, 33.828, 285.633, -33.4478, 298.247, -8.21936, 769.178, 3061.24, 777.587, 3052.83, -1177.62, 1068.19, -1143.98, 1080.81, -462.81, -67.0857, -437.582, -41.8573, 20.7345, 23.286, -6.09454 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 725.272, 601.947 )
+shape = SubResource( 2 )
 
 
 [editable path="Door"]

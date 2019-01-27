@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_basement.jpg" type="Texture" id=2]
@@ -10,6 +10,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 68, 81.0876 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 51.4478, 280.361 )
 
 [node name="ROOM_BASEMENT" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,7 +27,7 @@ position = Vector2( -386.781, -45.7029 )
 type = 4
 
 [node name="Character" parent="." instance=ExtResource( 4 )]
-position = Vector2( -1396.54, 1244.39 )
+position = Vector2( 353.051, 741.083 )
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 353.211, 478.193 )
@@ -34,8 +38,21 @@ on_enter_set_spawn_point = 3
 shape = SubResource( 1 )
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 6 )]
-position = Vector2( 357.336, 690.542 )
+position = Vector2( 357.336, 790.404 )
 spawn_id = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( -496.159, -441.497 )
+mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( -17.2396, 6.09686 )
+build_mode = 1
+polygon = PoolVector2Array( 14.7916, -7.01666, 1844.27, -7.01666, 1844.27, 248.631, 1848.27, 1642.71, 1780.36, 1638.72, 1780.36, 252.626, 22.7806, 256.62, 18.7861, 1634.72, 1748.4, 1630.73, 1748.4, 1674.67, -29.1478, 1674.67, -9.17542, 24.9393 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 850.829, 567.219 )
+shape = SubResource( 2 )
 
 
 [editable path="Door"]

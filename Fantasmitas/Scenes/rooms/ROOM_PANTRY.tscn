@@ -53,6 +53,13 @@ on_enter_set_spawn_point = 1
 position = Vector2( -10.3247, -20.6492 )
 shape = SubResource( 2 )
 
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( 324.453, 25.2352 )
+polygon = PoolVector2Array( 13.3482, -9.50574, 1239.06, -2.29565, 1231.85, -164.522, 1577.93, -160.917, 1592.35, 779.997, 1592.35, 1241.44, -22.7021, 1227.02, -33.5173, 1277.49, 1646.43, 1281.1, 1639.22, -831.454, -303.895, -820.639, -296.685, 1270.28, -105.618, 1266.68, -102.013, -38.346, -47.9374, -27.5309, -73.1727, 1198.18, -29.9122, 1216.21, -19.0971, 15.7295, 12.2378, -0.629143 )
+
 
 [editable path="DoorEast"]
 

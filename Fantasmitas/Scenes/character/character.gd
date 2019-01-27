@@ -48,6 +48,8 @@ func _set_anim(anim):
 
 func _on_body_enter(body):
 	if body.is_in_group("item"):
+		if(body.type == Inventory.Items.ITEM_LETTER):
+			get_tree().call_deferred("change_scene", "res://Scenes/endgame/Endgame.tscn")
 		Inventory.add_item_to_inventory(body.type)
 		body.queue_free()
 	if body.is_in_group("ghost"):

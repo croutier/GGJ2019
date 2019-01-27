@@ -71,7 +71,8 @@ func get_ghost_status(ghost):
 
 func get_ghost_item(ghost):
 	return ghost_items[ghost]
-
+func should_trigger_arthur_quest():
+	return Ghosts.size() == ghosts_quests_fulfilled.size()-1
 func set_room_status(room, status):
 	room_status[room] = status
 func open_trap_door():

@@ -34,10 +34,17 @@ func _change_state():
 	$AnimationPlayer.play("fade")
 	pass
 
-func fade_ended():	
+func fade_ended():
 	if ghost_id == Quest.Ghosts.GHOST_BUTLER:
 		get_parent().get_node("Door2").is_active = true
+	if(ghost_id == Quest.Ghosts.GHOST_WIFE):
+		Quest.add_current_ghost_quests(Quest.Ghosts.GHOST_ARTHUR)
+		var item = get_parent().get_tree().get_nodes_in_group("item")
+		item[0].enabled = true
 	pass
+func midle_fade():
+	var memories = get_parent().get_tree().get_nodes_in_group("memory")
+	memories[0].visible = true
 func _show_item_needed():
 	Inventory.activate_item(Quest.get_ghost_item(ghost_id))
 	$AnimationPlayer.play("show_hint")

@@ -14,7 +14,7 @@ extents = Vector2( 118.966, 28.8402 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 25.2352, 79.3105 )
+extents = Vector2( 25.2352, 108.152 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -28,14 +28,14 @@ position = Vector2( 454.749, 638.374 )
 texture = ExtResource( 2 )
 
 [node name="GHOST_DOG" parent="." instance=ExtResource( 3 )]
-position = Vector2( -288.703, 335.453 )
+position = Vector2( -977.262, 331.848 )
 ghost_id = 4
 
 [node name="Character" parent="." instance=ExtResource( 4 )]
-position = Vector2( -301.715, 602.244 )
+position = Vector2( -1011.9, 659.924 )
 
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 5 )]
-position = Vector2( 499.017, 254.121 )
+position = Vector2( 1342.59, 748.009 )
 ghost_id = 4
 
 [node name="GhostSpawnPoint2" parent="." instance=ExtResource( 5 )]
@@ -44,19 +44,19 @@ ghost_id = 4
 ghost_status_id = 1
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 6 )]
-position = Vector2( 39.7335, 299.897 )
+position = Vector2( -544.28, 937.985 )
 spawn_id = 3
 
 [node name="SpawnPoint2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 973.435, 303.502 )
+position = Vector2( 1341.15, 743.314 )
 spawn_id = 1
 
 [node name="SpawnPoint3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 533.622, 72.7806 )
+position = Vector2( 414.656, 180.931 )
 
 [node name="Door" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( 508.387, -2.92493 )
+position = Vector2( 403.841, 79.9905 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_PLAYROOM.tscn"
 on_enter_set_spawn_point = 2
 
@@ -65,7 +65,7 @@ shape = SubResource( 1 )
 
 [node name="Door2" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( -35.972, 303.502 )
+position = Vector2( -619.985, 930.775 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_DINING_ROOM.tscn"
 on_enter_set_spawn_point = 1
 
@@ -74,7 +74,7 @@ shape = SubResource( 2 )
 
 [node name="Door3" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( 1045.54, 321.527 )
+position = Vector2( 1499.77, 750.524 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_STAIRCASE.tscn"
 on_enter_set_spawn_point = 3
 

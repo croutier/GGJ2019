@@ -14,10 +14,11 @@
 extents = Vector2( 68, 156.23 )
 
 [node name="ROOM_BEDROOM" type="Node2D"]
+position = Vector2( 24.0842, -42.1472 )
 script = ExtResource( 1 )
 
 [node name="ref_room_bedroom" type="Sprite" parent="."]
-position = Vector2( 2039.36, 2041.18 )
+position = Vector2( 2171.82, 1655.83 )
 texture = ExtResource( 2 )
 
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 3 )]

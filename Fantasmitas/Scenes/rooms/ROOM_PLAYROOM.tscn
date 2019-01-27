@@ -11,7 +11,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 98.9077, 21.636 )
+extents = Vector2( 45.5497, 106.553 )
 
 [node name="ROOM_PLAYROOM" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,34 +21,34 @@ position = Vector2( 79.066, 752.217 )
 texture = ExtResource( 2 )
 
 [node name="GHOST_DAUGHTER" parent="." instance=ExtResource( 3 )]
-position = Vector2( -199.5, 557.624 )
+position = Vector2( 1902.29, 577.145 )
 ghost_id = 3
 
 [node name="ITEM_NECKLACE" parent="." instance=ExtResource( 4 )]
-position = Vector2( 690.569, 256.622 )
+position = Vector2( 322.918, 217.579 )
 type = 3
 
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 5 )]
-position = Vector2( 309.623, 489.673 )
+position = Vector2( 39.5787, 135.037 )
 ghost_id = 3
 
 [node name="GhostSpawnPoint2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 522.893, 421.674 )
+position = Vector2( -199.394, 1290.37 )
 ghost_id = 3
 
 [node name="Character" parent="." instance=ExtResource( 6 )]
-position = Vector2( -166.371, 863.668 )
+position = Vector2( 2176.18, 1029.6 )
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 7 )]
-position = Vector2( 461.075, 566.945 )
+position = Vector2( 464.329, 1298.99 )
 spawn_id = 2
 
 [node name="Door" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 470.348, 650.398 )
+position = Vector2( 577.715, 1310.87 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_HALL.tscn"
 
 [node name="CollisionShape2D" parent="Door" index="0"]
+position = Vector2( -3.25351, -3.2536 )
 shape = SubResource( 1 )
 
 

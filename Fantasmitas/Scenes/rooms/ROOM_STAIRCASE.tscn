@@ -7,11 +7,11 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 68, 10 )
+extents = Vector2( 41.2848, 123.008 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 68, 10 )
+extents = Vector2( 38.0243, 78.9553 )
 
 [node name="ROOM_STAIRCASE" type="Node2D"]
 
@@ -23,15 +23,15 @@ texture = ExtResource( 1 )
 position = Vector2( -539.258, 830.857 )
 
 [node name="SpawnWest" parent="." instance=ExtResource( 3 )]
-position = Vector2( -466.005, 1620.82 )
+position = Vector2( -107.496, 1191.49 )
 spawn_id = 3
 
 [node name="SpawnSouth" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1251.84, -4.98218 )
+position = Vector2( 1101.35, 30.4261 )
 spawn_id = 2
 
 [node name="DoorWest" parent="." instance=ExtResource( 4 )]
-position = Vector2( -470, 1493 )
+position = Vector2( -209.717, 1170.9 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_HALL.tscn"
 on_enter_set_spawn_point = 1
 
@@ -39,7 +39,7 @@ on_enter_set_spawn_point = 1
 shape = SubResource( 1 )
 
 [node name="DoorSouth" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1243.85, 78.902 )
+position = Vector2( 1212.87, 39.0677 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_BEDROOM.tscn"
 on_enter_set_spawn_point = 3
 

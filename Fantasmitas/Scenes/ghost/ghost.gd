@@ -20,7 +20,7 @@ func _become_human():
 		Quest.Ghost.GHOST_MOTHER:
 			$AnimationPlayer.play("Mother")
 		Quest.Ghost.GHOST_COOK:
-			$AnimationPlayer.play("CooK")				
+			$AnimationPlayer.play("CooK")
 		Quest.Ghost.GHOST_DOG:
 			$AnimationPlayer.play("Dog")
 		Quest.Ghost.GHOST_WIFE:
@@ -50,7 +50,6 @@ func _change_state():
 	pass
 
 func fade_ended():
-	_become_human()
 	if ghost_id == Quest.Ghosts.GHOST_BUTLER:
 		get_parent().get_node("Door2").is_active = true
 	if(ghost_id == Quest.Ghosts.GHOST_WIFE):
@@ -58,9 +57,6 @@ func fade_ended():
 		var item = get_parent().get_tree().get_nodes_in_group("item")		
 		item[0].enabled = true
 	pass
-func midle_fade():
-	var memories = get_parent().get_tree().get_nodes_in_group("memory")
-	memories[0].visible = true
 func _show_item_needed():
 	Inventory.activate_item(Quest.get_ghost_item(ghost_id))
 	$AnimationPlayer.play("show_hint")

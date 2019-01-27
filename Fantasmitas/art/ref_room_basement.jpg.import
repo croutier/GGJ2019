@@ -12,7 +12,7 @@ dest_files=[ "res://.import/ref_room_basement.jpg-57ac604f5179a5570e711d6afe89b0
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=2

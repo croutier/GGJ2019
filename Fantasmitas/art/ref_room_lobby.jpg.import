@@ -12,7 +12,7 @@ dest_files=[ "res://.import/ref_room_lobby.jpg-26d31a2d2a8f77763cf572f094c8c46b.
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=2

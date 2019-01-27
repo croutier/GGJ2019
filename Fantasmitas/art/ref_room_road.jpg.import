@@ -12,7 +12,7 @@ dest_files=[ "res://.import/ref_room_road.jpg-4d3b9fa8be4e3d9f6a0d9e3d06107723.s
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=2

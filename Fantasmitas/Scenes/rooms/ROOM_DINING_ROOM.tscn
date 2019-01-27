@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/ref_room_dining_room.jpg" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -49,6 +50,10 @@ spawn_id = 1
 
 [node name="SpawnSouth" parent="." instance=ExtResource( 4 )]
 spawn_id = 2
+
+[node name="ref_room_dining_room" type="Sprite" parent="."]
+position = Vector2( 718.504, 945.209 )
+texture = ExtResource( 5 )
 
 
 [editable path="DoorSouth"]

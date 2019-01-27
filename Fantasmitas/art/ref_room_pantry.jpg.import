@@ -12,7 +12,7 @@ dest_files=[ "res://.import/ref_room_pantry.jpg-ec5c4bbf3e029e1f8f86a12c575fcca6
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=2

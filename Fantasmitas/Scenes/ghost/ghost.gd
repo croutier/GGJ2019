@@ -21,13 +21,17 @@ func _become_human():
 		Quest.Ghosts.GHOST_MOTHER:
 			$AnimationPlayer.play("Mother")
 		Quest.Ghosts.GHOST_COOK:
-			$AnimationPlayer.play("CooK")
+			$AnimationPlayer.play("Cook")
 		Quest.Ghosts.GHOST_DOG:
 			$AnimationPlayer.play("Dog")
 		Quest.Ghosts.GHOST_WIFE:
 			$AnimationPlayer.play("Wife")
-					
-					
+		Quest.Ghosts.GHOST_DAUGHTER:
+			$AnimationPlayer.play("Daughter")
+		_:
+			printerr("Matched no ghost to turn into human")
+	return
+
 func interact():
 	if(Quest.get_fulfilled_ghost_request(ghost_id)):
 		return
@@ -46,6 +50,8 @@ func interact():
 func _change_state():
 	Quest.get_ghost_status(ghost_id)
 	$AnimationPlayer.play("fade")
+	yield($AnimationPlayer, "animation_finished")
+	_become_human()
 	pass
 
 func fade_ended():
@@ -56,6 +62,7 @@ func fade_ended():
 		var item = get_parent().get_tree().get_nodes_in_group("item")
 		item[0].enabled = true
 	pass
+
 func _show_item_needed():
 	Inventory.activate_item(Quest.get_ghost_item(ghost_id))
 	$AnimationPlayer.play("show_hint")

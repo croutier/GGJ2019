@@ -20,7 +20,7 @@ func _ready():
 func set_active(active):
 	is_active = active
 
-func _on_Door_body_entered(body:KinematicBody2D):
+func _on_Door_body_entered(body:PhysicsBody2D):
 	if body.is_in_group("character") and is_active:
 		Quest.set_spawn_point(on_enter_set_spawn_point)
 		get_tree().call_deferred("change_scene", on_enter_load_scene)

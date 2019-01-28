@@ -55,7 +55,7 @@ spawn_id = 1
 position = Vector2( -3871.14, 1494.88 )
 
 [node name="Ghost" parent="." instance=ExtResource( 7 )]
-position = Vector2( -693.586, 1981.37 )
+position = Vector2( 157.778, 4250.74 )
 ghost_id = 1
 
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 8 )]

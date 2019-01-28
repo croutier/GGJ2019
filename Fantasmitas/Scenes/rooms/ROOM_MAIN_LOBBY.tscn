@@ -31,7 +31,7 @@ z_index = -1
 script = ExtResource( 1 )
 
 [node name="GHOST_MOTHER" parent="." instance=ExtResource( 2 )]
-position = Vector2( -2346.77, 1496.5 )
+position = Vector2( 329.07, 6007.91 )
 ghost_id = 1
 
 [node name="TextureRect" parent="GHOST_MOTHER/Memory" index="0"]

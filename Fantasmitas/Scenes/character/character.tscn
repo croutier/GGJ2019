@@ -181,6 +181,7 @@ anims/idle = SubResource( 5 )
 position = Vector2( 0, -50 )
 
 [node name="Sprite" type="Sprite" parent="Position2D"]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4

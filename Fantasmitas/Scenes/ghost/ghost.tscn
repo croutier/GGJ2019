@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/ghost/ghost.gd" type="Script" id=1]
-[ext_resource path="res://art/Characters/ghost.png" type="Texture" id=2]
+[ext_resource path="res://art/Characters/mother_human.png" type="Texture" id=2]
 [ext_resource path="res://art/Characters/butler_human.png" type="Texture" id=3]
 [ext_resource path="res://art/Characters/cook_human.png" type="Texture" id=4]
 [ext_resource path="res://art/Characters/dog_canine.png" type="Texture" id=5]
 [ext_resource path="res://art/Characters/maid_human.png" type="Texture" id=6]
-[ext_resource path="res://art/Characters/mother_human.png" type="Texture" id=7]
-[ext_resource path="res://art/Characters/wife_human.png" type="Texture" id=8]
+[ext_resource path="res://art/Characters/wife_human.png" type="Texture" id=7]
+[ext_resource path="res://art/Characters/ghost.png" type="Texture" id=8]
 [ext_resource path="res://art/nubecita.png" type="Texture" id=9]
 [ext_resource path="res://art/placeHolder.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Memories/Memory.tscn" type="PackedScene" id=11]
@@ -16,7 +16,7 @@
 
 extents = Vector2( 58.2202, 90.0974 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 
 resource_name = "Butler"
 tracks/0/type = "value"
@@ -32,7 +32,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 
 resource_name = "Cook"
 tracks/0/type = "value"
@@ -48,7 +48,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
 resource_name = "Dog"
 tracks/0/type = "value"
@@ -64,7 +64,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 
 resource_name = "Maid"
 tracks/0/type = "value"
@@ -80,9 +80,25 @@ tracks/0/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 
 resource_name = "Mother"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "Wife"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -96,25 +112,8 @@ tracks/0/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 
-resource_name = "Wife"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 8 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-
-resource_name = "fade"
 length = 8.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -179,7 +178,7 @@ tracks/4/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=9]
 
 length = 3.0
 loop = true
@@ -206,12 +205,11 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=10]
 
-resource_name = "show_hint"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("hint:visible")
@@ -237,19 +235,20 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.678431 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/Butler = SubResource( 10 )
-anims/Cook = SubResource( 5 )
-anims/Dog = SubResource( 6 )
-anims/Maid = SubResource( 7 )
-anims/Mother = SubResource( 8 )
-anims/Wife = SubResource( 9 )
-anims/fade = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/show_hint = SubResource( 4 )
+anims/Butler = SubResource( 2 )
+anims/Cook = SubResource( 3 )
+anims/Dog = SubResource( 4 )
+anims/Maid = SubResource( 5 )
+anims/Mother = SubResource( 6 )
+anims/Wife = SubResource( 7 )
+anims/fade = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/show_hint = SubResource( 10 )
 next/show_hint = "idle"
 
 [node name="hint" type="Sprite" parent="."]

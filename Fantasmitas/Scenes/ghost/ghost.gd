@@ -9,21 +9,21 @@ export(quest.Ghosts) var ghost_id = 0
 func _ready():
 	if Quest.get_fulfilled_ghost_request(ghost_id) and ghost_id == Quest.Ghosts.GHOST_BUTLER:
 		get_parent().get_node("Door2").is_active = true
-		if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
-			_become_human()
+	if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
+		_become_human()
 		
 	pass # Replace with function body.
 func _become_human():
 	match ghost_id:
 		Quest.Ghosts.GHOST_BUTLER:
 			$AnimationPlayer.play("Butler")
-		Quest.Ghost.GHOST_MOTHER:
+		Quest.Ghosts.GHOST_MOTHER:
 			$AnimationPlayer.play("Mother")
-		Quest.Ghost.GHOST_COOK:
+		Quest.Ghosts.GHOST_COOK:
 			$AnimationPlayer.play("CooK")
-		Quest.Ghost.GHOST_DOG:
+		Quest.Ghosts.GHOST_DOG:
 			$AnimationPlayer.play("Dog")
-		Quest.Ghost.GHOST_WIFE:
+		Quest.Ghosts.GHOST_WIFE:
 			$AnimationPlayer.play("Wife")
 					
 					

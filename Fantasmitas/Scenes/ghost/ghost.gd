@@ -8,7 +8,8 @@ export(quest.Ghosts) var ghost_id = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Quest.get_fulfilled_ghost_request(ghost_id) and ghost_id == Quest.Ghosts.GHOST_BUTLER:
-		get_parent().get_node("Door2").is_active = true
+		if get_parent().has_node("Door2"):
+			get_parent().get_node("Door2").is_active = true
 	if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
 		_become_human()
 		

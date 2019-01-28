@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=2]
@@ -24,6 +24,22 @@ extents = Vector2( 68, 143.545 )
 [sub_resource type="RectangleShape2D" id=4]
 
 extents = Vector2( 156.919, 49.198 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 1807.56, 239.674 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 930.333, 239.674 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+extents = Vector2( 530.058, 66.4949 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+extents = Vector2( 327.631, 1394.83 )
 
 [node name="ROOM_MAIN_LOBBY" type="Node2D"]
 position = Vector2( 1735.24, -1198.33 )
@@ -104,26 +120,44 @@ on_enter_set_spawn_point = 2
 [node name="CollisionShape2D" parent="Door4" index="0"]
 shape = SubResource( 4 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mode = 1
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( -992.331, -920.753 )
-polygon = PoolVector2Array( 25.711, -0.376709, 1102.63, 15.8909, 1092.87, -254.153, 1353.16, -254.153, 1314.11, 9.38379, 2530.94, 45.1729, 2521.18, 331.485, 1538.61, 328.231, 1567.89, 367.274, 2563.48, 373.781, 2560.22, -13.3909, 1356.41, -39.4194, 1379.19, -293.196, 1040.82, -283.435, 1070.1, -23.1516, -42.6135, -32.9121, -42.6135, 344.499, 881.393, 367.274, 884.647, 315.217, -0.317383, 308.71, 3.18152, 17.9995 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 288.323, 1941.38 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -835.514, -1141.41 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 1251.76, -1146.32 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -604.374, -579.068 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 1059.52, -578.016 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 1899.32, 426.313 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -1327.98, 426.313 )
+shape = SubResource( 8 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
 position = Vector2( -115.361, -547.966 )
 build_mode = 1
-polygon = PoolVector2Array( -18.2261, 9.82385, -54.2765, 175.656, -111.957, 298.227, -184.058, 409.983, -194.873, 525.344, -140.797, 536.159, -144.402, 453.243, -57.8815, 323.462, -0.200928, 193.681, 39.4545, 2.61389, 8.83594, -21.8646 )
+polygon = PoolVector2Array( -18.2261, 9.82385, -54.2765, 175.656, -111.957, 298.227, -184.058, 409.983, -194.873, 525.344, -140.797, 536.159, -144.402, 453.243, -57.8815, 323.462, -0.200928, 193.681, 40.9592, 31.2208, 8.83594, -21.8646 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="RigidBody2D"]
 position = Vector2( 578.41, -550.281 )
-polygon = PoolVector2Array( 16.3384, 16.9069, 23.3706, 108.327, 67.3228, 231.393, 120.065, 363.25, 120.065, 472.251, 69.0808, 491.59, 65.5647, 370.282, 18.0964, 236.668, -25.8557, 99.537, -38.1624, -0.67395, -15.6694, -18.0081, 12.5645, 12.7925 )
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( -1038.53, -581.083 )
-build_mode = 1
-polygon = PoolVector2Array( -6.07648, 36.5907, -22.4674, 2352.98, 2703.66, 2359.83, 2642.02, 13.8569, 2590.64, 13.8569, 2641.76, 2291.51, 25.9119, 2268.74, 25.9119, 2268.74, 16.6541, 9.87708 )
+polygon = PoolVector2Array( 16.3384, 16.9069, 23.3706, 108.327, 67.3228, 231.393, 120.065, 363.25, 120.065, 472.251, 69.0808, 491.59, 65.5647, 370.282, 15.0793, 241.024, -32.8025, 112.111, -49.991, 38.4468, -15.6694, -18.0081, 12.5645, 12.7925 )
 
 
 [editable path="GHOST_MOTHER"]

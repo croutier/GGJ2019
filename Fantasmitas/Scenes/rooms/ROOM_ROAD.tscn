@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=2]
@@ -17,7 +17,16 @@ extents = Vector2( 68, 483.417 )
 
 extents = Vector2( 70.343, 449.949 )
 
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 5449.31, 315.632 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 519.84, 1306.14 )
+
 [node name="ROOM_ROAD" type="Node2D"]
+editor/display_folded = true
 position = Vector2( 3493.22, -222.296 )
 z_index = -1
 script = ExtResource( 1 )
@@ -71,7 +80,7 @@ ghost_status_id = 1
 position = Vector2( -334.599, -972.672 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-polygon = PoolVector2Array( 62.5615, -60.8805, 3883.22, -68.6617, 3867.66, 950.699, 3953.25, 1121.89, 4101.1, 1191.92, 4350.1, 1223.05, 4645.79, 1207.48, 4809.2, 1098.54, 4894.8, 1067.42, 4964.83, 1044.08, 4964.83, 2273.53, -3190.05, 2296.88, -3174.49, 2382.47, 5050.42, 2374.69, 5003.74, -185.382, 8.09204, -123.131 )
+polygon = PoolVector2Array( 3881.38, -95.032, 3881.38, 1034.97, 4071.38, 1174.97, 4421.38, 1224.97, 4751.38, 1164.97, 5051.38, 1164.97, 5051.38, -105.032 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2( -54.4695, 342.381 )
@@ -81,9 +90,21 @@ shape = SubResource( 2 )
 position = Vector2( -2147.66, 373.506 )
 shape = SubResource( 2 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( 101.539, -54.1855 )
-polygon = PoolVector2Array( -2.43652, -25.3538, -49.418, -54.717, -3289.35, -42.9064, -3273.05, 2424.14, -3202.41, 2424.14, -3229.58, 5.99988 )
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 690.794, 2583.26 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 690.794, -383.35 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -3636.12, 1192.98 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 5493.63, 1192.98 )
+shape = SubResource( 4 )
 
 
 [editable path="Door"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=2]
@@ -18,9 +18,18 @@ extents = Vector2( 68, 157.201 )
 
 extents = Vector2( 111.884, 56.5228 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=4]
 
-extents = Vector2( 316.96, 1326.93 )
+radius = 169.949
+height = 286.96
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 1139.53, 309.183 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 402.87, 2158.8 )
 
 [node name="ROOM_DINING_ROOM" type="Node2D"]
 script = ExtResource( 1 )
@@ -68,17 +77,40 @@ position = Vector2( 718.504, 945.209 )
 z_index = -1
 texture = ExtResource( 5 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mode = 1
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( -651.734, -904.018 )
-build_mode = 1
-polygon = PoolVector2Array( 28.9052, -0.31311, 2749.37, -8.7226, 2753.58, 3708.27, -17.3462, 3708.27, -8.04871, 15.3373, 20.3125, 3.36261, 41.741, 84.6647, 39.2623, 3647.98, 2671.59, 3647.98, 2669.06, 97.8297, 46.7339, 81.0182 )
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 705.414, 979.525 )
+position = Vector2( 702.399, -159.962 )
+rotation = 1.5708
 shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 702.399, 2127.76 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 702.399, 974.251 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 2417.42, 974.251 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -997.833, 974.251 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 695.008, -1221.27 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 695.008, 3147.59 )
+rotation = 1.5708
+shape = SubResource( 6 )
 
 
 [editable path="DoorSouth"]

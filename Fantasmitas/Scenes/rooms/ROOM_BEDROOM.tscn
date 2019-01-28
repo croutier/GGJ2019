@@ -52,17 +52,14 @@ on_enter_set_spawn_point = 1
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 1 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 930.517, 1122.48 )
-mode = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-build_mode = 1
-polygon = PoolVector2Array( 22.4744, -1.58508, 1037.58, 11.4291, 1040.84, 776.015, 1668.77, 769.508, 1675.28, -105.699, -6.8078, -8.09204 )
+polygon = PoolVector2Array( -14.6013, -10.3328, -14.6013, 1379.67, 1865.4, 1379.67, 1865.4, -0.332764, 2235.4, -0.332764, 2305.4, 1819.67, -394.601, 1789.67, -404.601, -70.3328 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( -13.0142, 1392.52 )
-polygon = PoolVector2Array( 28.9813, -1.58496, 1883.51, -8.09204, 1877, -1244.44, 1942.07, -1433.15, 1681.79, -1433.15, 1678.53, -1501.47, 1990.88, -1472.19, 1903.03, -1237.94, 1912.79, 24.4436, -36.0898, 14.6829, -6.8078, -1397.36, 22.4742, -1397.36 )
+polygon = PoolVector2Array( -14.6013, -10.3328, 1045.4, -10.3328, 1045.4, 779.667, 1665.4, 779.667, 1675.4, -0.332764, 2235.4, -0.332764, 2235.4, -410.333, -404.601, -410.333, -404.601, -60.3328 )
 
 
 [editable path="Door"]

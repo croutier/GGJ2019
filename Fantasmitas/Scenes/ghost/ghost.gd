@@ -41,9 +41,7 @@ func interact():
 		_show_item_needed()
 	
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
 func _change_state():
 	Quest.get_ghost_status(ghost_id)
 	$AnimationPlayer.play("fade")
@@ -54,7 +52,7 @@ func fade_ended():
 		get_parent().get_node("Door2").is_active = true
 	if(ghost_id == Quest.Ghosts.GHOST_WIFE):
 		Quest.add_current_ghost_quests(Quest.Ghosts.GHOST_ARTHUR)
-		var item = get_parent().get_tree().get_nodes_in_group("item")		
+		var item = get_parent().get_tree().get_nodes_in_group("item")
 		item[0].enabled = true
 	pass
 func _show_item_needed():

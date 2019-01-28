@@ -48,6 +48,12 @@ Inventory="*res://Autoload/inventory.gd"
 Quest="*res://Autoload/quest.gd"
 MainTheme="*res://Scenes/music/AudioStreamPlayer.tscn"
 
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_class_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 

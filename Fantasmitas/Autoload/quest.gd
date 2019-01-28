@@ -40,6 +40,7 @@ var ghost_status = {
 	Ghosts.GHOST_DAUGHTER : GhostStatus.GHOST_STATUS_BLOB,
 	Ghosts.GHOST_DOG : GhostStatus.GHOST_STATUS_BLOB,
 	Ghosts.GHOST_WIFE : GhostStatus.GHOST_STATUS_BLOB,
+	Ghosts.GHOST_ARTHUR: GhostStatus.GHOST_STATUS_BLOB,
 }
 
 var room_status = {

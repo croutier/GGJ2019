@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Fantasmitas"
+config/name="Memories"
 run/main_scene="res://Scenes/rooms/ROOM_ROAD.tscn"
 config/icon="res://icon.png"
 

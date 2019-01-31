@@ -49,8 +49,10 @@ func interact():
 
 func _change_state():
 	Quest.get_ghost_status(ghost_id)
+	get_tree().set_group("character", "can_move", false)
 	$AnimationPlayer.play("fade")
 	yield($AnimationPlayer, "animation_finished")
+	get_tree().set_group("character", "can_move", true)
 	_become_human()
 	pass
 

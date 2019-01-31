@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var b = "text"
 onready var anim_controller = $AnimationPlayer
 onready var area2D = $Area2D
-
+var can_move = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Area2D.connect("body_entered", self, "_on_body_enter")
@@ -14,6 +14,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not can_move:
+		_set_anim("stop")
+		return
 	var movement : = Vector2()
 
 	if(Input.is_action_pressed("ui_right")):

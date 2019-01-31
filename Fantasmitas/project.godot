@@ -46,8 +46,8 @@ config/icon="res://icon.png"
 
 Inventory="*res://Autoload/inventory.gd"
 Quest="*res://Autoload/quest.gd"
-MainTheme="*res://Scenes/music/AudioStreamPlayer.tscn"
 ScenePreloader="*res://Autoload/scene_preloader.gd"
+Music="*res://Scenes/music/Music.tscn"
 
 [debug]
 

@@ -8,6 +8,9 @@ enum SpawnPoints {SPAWN_NORTH, SPAWN_EAST, SPAWN_SOUTH, SPAWN_WEST}
 
 var trap_door_open = false
 
+var was_outdoors = true
+var entered_house_first_time = false
+
 enum Rooms {ROOM_ROAD, 
 	ROOM_CASTLE_DOOR, 
 	ROOM_MAIN_LOBBY, 

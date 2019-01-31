@@ -1,10 +1,13 @@
 extends Node2D
 
+export(bool) var is_exterior = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_spawn_character()
 	_spawn_ghosts()
 	_spawn_items()
+	_play_music()
 	pass
 	 # Replace with function body.
 	
@@ -42,7 +45,17 @@ func _spawn_items():
 		
 	pass
 	
-
+func _play_music():
+	if Quest.was_outdoors == true and is_exterior == false:
+		if Quest.entered_house_first_time == false:
+			Music.play("indoors_first_time")
+			Quest.entered_house_first_time = true
+		else:
+			Music.play("indoors")
+		Quest.was_outdoors = is_exterior
+	elif Quest.was_outdoors == false and is_exterior == true:
+		Music.play("outdoors")
+		Quest.was_outdoors = is_exterior
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

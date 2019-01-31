@@ -8,8 +8,8 @@ export(quest.Ghosts) var ghost_id = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Quest.get_fulfilled_ghost_request(ghost_id) and ghost_id == Quest.Ghosts.GHOST_BUTLER:
-		if get_parent().has_node("Door2"):
-			get_parent().get_node("Door2").is_active = true
+		if owner.has_node("CastleDoor"):
+			owner.get_node("CastleDoor").is_active = true
 	if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
 		_become_human()
 		
@@ -56,7 +56,7 @@ func _change_state():
 
 func fade_ended():
 	if ghost_id == Quest.Ghosts.GHOST_BUTLER:
-		get_parent().get_node("Door2").is_active = true
+		owner.get_node("CastleDoor").is_active = true
 	if(ghost_id == Quest.Ghosts.GHOST_WIFE):
 		Quest.add_current_ghost_quests(Quest.Ghosts.GHOST_ARTHUR)
 		var item = get_parent().get_tree().get_nodes_in_group("item")

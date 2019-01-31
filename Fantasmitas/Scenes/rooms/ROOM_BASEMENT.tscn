@@ -30,11 +30,13 @@ script = ExtResource( 1 )
 position = Vector2( 405.417, 368.945 )
 texture = ExtResource( 2 )
 
-[node name="ITEM_TEDDY_BEAR" parent="." instance=ExtResource( 3 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="ITEM_TEDDY_BEAR" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -386.781, -45.7029 )
 type = 4
 
-[node name="Character" parent="." instance=ExtResource( 4 )]
+[node name="Character" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 364.435, 839.747 )
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
@@ -50,6 +52,7 @@ position = Vector2( 357.336, 832.147 )
 spawn_id = 1
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( -496.159, -441.497 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]

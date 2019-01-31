@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_bedroom.jpg" type="Texture" id=2]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -21,28 +21,30 @@ script = ExtResource( 1 )
 position = Vector2( 2171.82, 1655.83 )
 texture = ExtResource( 2 )
 
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2702.76, 1448.34 )
-ghost_id = 5
+[node name="YSort" type="YSort" parent="."]
 
-[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -446.641, 2043.25 )
-z_index = -1
-
-[node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1124.41, 1408.14 )
-spawn_id = 3
-
-[node name="GHOST_WIFE" parent="." instance=ExtResource( 5 )]
+[node name="GHOST_WIFE" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -548.069, 825.425 )
 ghost_id = 5
 
-[node name="ITEM_LETTER" parent="." instance=ExtResource( 6 )]
+[node name="ITEM_LETTER" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 2726.38, 1183.15 )
 type = 6
 
-[node name="Character" parent="." instance=ExtResource( 7 )]
+[node name="Character" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( -543.403, 343.202 )
+
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2702.76, 1448.34 )
+ghost_id = 5
+
+[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -446.641, 2043.25 )
+z_index = -1
+
+[node name="SpawnPoint" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1124.41, 1408.14 )
+spawn_id = 3
 
 [node name="Door" parent="." instance=ExtResource( 8 )]
 position = Vector2( 971.85, 1414.81 )

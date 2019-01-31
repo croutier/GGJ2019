@@ -32,7 +32,9 @@ script = ExtResource( 1 )
 position = Vector2( 987.504, 250.836 )
 texture = ExtResource( 2 )
 
-[node name="Character" parent="." instance=ExtResource( 3 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Character" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2804.7, 414.649 )
 
 [node name="SpawnEast" parent="." instance=ExtResource( 4 )]
@@ -45,6 +47,7 @@ position = Vector2( 1221.65, 558.839 )
 spawn_id = 3
 
 [node name="DoorEast" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 1907.72, 982.381 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_MAIN_LOBBY.tscn"
 on_enter_set_spawn_point = 3
@@ -54,6 +57,7 @@ position = Vector2( 5.87256, 8.80896 )
 shape = SubResource( 1 )
 
 [node name="TrapDoor" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 934.376, 567.853 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_BASEMENT.tscn"
 on_enter_set_spawn_point = 1
@@ -64,6 +68,7 @@ position = Vector2( -10.3247, -20.6492 )
 shape = SubResource( 2 )
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2( 983.911, 1395.98 )
@@ -88,6 +93,7 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1748.64, -35.1134 )
 script = ExtResource( 6 )
 

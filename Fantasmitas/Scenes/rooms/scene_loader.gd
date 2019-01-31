@@ -15,7 +15,7 @@ func _spawn_character():
 		if spawnpoint.spawn_id == Quest.spawn_point:
 			char_pos = spawnpoint.global_position
 	if char_pos is Vector2:
-		$Character.global_position = char_pos
+		get_tree().get_nodes_in_group("character")[0].global_position = char_pos
 	else:
 		printerr("No spawnpoint found for character. :(")
 	pass

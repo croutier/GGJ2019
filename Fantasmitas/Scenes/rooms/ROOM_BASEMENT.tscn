@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_basement.jpg" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -38,6 +39,9 @@ type = 4
 
 [node name="Character" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 364.435, 839.747 )
+
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 1.5, 1.5 )
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 353.211, 390.079 )
@@ -75,5 +79,17 @@ shape = SubResource( 3 )
 position = Vector2( 850.031, 516.09 )
 shape = SubResource( 4 )
 
+[node name="camera_limits" parent="." instance=ExtResource( 7 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( -582.374, -512.489 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 1402.36, 1243.95 )
+
+
+[editable path="YSort/Character"]
 
 [editable path="Door"]
+
+[editable path="camera_limits"]

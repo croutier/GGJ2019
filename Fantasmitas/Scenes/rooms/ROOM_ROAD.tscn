@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_road.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,6 +30,7 @@ extents = Vector2( 519.84, 1306.14 )
 position = Vector2( 3493.22, -222.296 )
 z_index = -1
 script = ExtResource( 1 )
+is_exterior = true
 
 [node name="ref_room_road" type="Sprite" parent="."]
 position = Vector2( 573.795, 175.929 )
@@ -108,5 +110,15 @@ shape = SubResource( 4 )
 position = Vector2( 5493.63, 1192.98 )
 shape = SubResource( 4 )
 
+[node name="camera_limits" parent="." instance=ExtResource( 9 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( -3513.22, -1027.7 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 4656.78, 1362.3 )
+
 
 [editable path="Door"]
+
+[editable path="camera_limits"]

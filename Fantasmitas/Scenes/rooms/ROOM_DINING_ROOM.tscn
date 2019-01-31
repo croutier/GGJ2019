@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_dining_room.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -43,6 +44,9 @@ texture = ExtResource( 2 )
 
 [node name="Character" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -405.513, 957.732 )
+
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 2.5, 2.5 )
 
 [node name="DoorSouth" parent="." instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -118,9 +122,21 @@ position = Vector2( 695.008, 3147.59 )
 rotation = 1.5708
 shape = SubResource( 6 )
 
+[node name="camera_limits" parent="." instance=ExtResource( 6 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( -604.979, -802.523 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 2012.48, 2753.27 )
+
+
+[editable path="YSort/Character"]
 
 [editable path="DoorSouth"]
 
 [editable path="DoorEast"]
 
 [editable path="DoorNorth"]
+
+[editable path="camera_limits"]

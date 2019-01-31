@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_pantry.jpg" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/rooms/trap_door.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -36,6 +37,9 @@ texture = ExtResource( 2 )
 
 [node name="Character" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2804.7, 414.649 )
+
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 1.5, 1.5 )
 
 [node name="SpawnEast" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1769.32, 985.69 )
@@ -101,8 +105,20 @@ script = ExtResource( 6 )
 position = Vector2( 21.0681, 0 )
 shape = SubResource( 4 )
 
+[node name="camera_limits" parent="." instance=ExtResource( 7 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( 19.2903, -791.179 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 1957.54, 1294.21 )
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+
+[editable path="YSort/Character"]
 
 [editable path="DoorEast"]
 
 [editable path="TrapDoor"]
+
+[editable path="camera_limits"]

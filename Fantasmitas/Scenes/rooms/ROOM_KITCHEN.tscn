@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_kitchen.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://art/Memories/M_2.jpg" type="Texture" id=4]
+[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -42,28 +44,32 @@ texture = ExtResource( 2 )
 editor/display_folded = true
 position = Vector2( -982.947, 470.83 )
 ghost_id = 2
+memory = ExtResource( 4 )
 
-[node name="ITEM_COLLAR" parent="YSort" instance=ExtResource( 4 )]
+[node name="ITEM_COLLAR" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 82.2014, 45.757 )
 type = 2
 
-[node name="Character" parent="YSort" instance=ExtResource( 5 )]
+[node name="Character" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 65.7389, 850.665 )
 
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 6 )]
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 82.4468, 264.347 )
 ghost_id = 2
 
-[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 6 )]
+[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 432.317, 142.436 )
 ghost_id = 2
 ghost_status_id = 1
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 7 )]
+[node name="SpawnPoint" parent="." instance=ExtResource( 8 )]
 position = Vector2( 56.3295, 954.372 )
 spawn_id = 2
 
-[node name="Door" parent="." instance=ExtResource( 8 )]
+[node name="Door" parent="." instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 58.3005, 1046.35 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_DINING_ROOM.tscn"
@@ -110,5 +116,17 @@ shape = SubResource( 4 )
 position = Vector2( 567.611, 920.36 )
 shape = SubResource( 5 )
 
+[node name="camera_limits" parent="." instance=ExtResource( 10 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( -810, -420 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 960, 1240 )
+
+
+[editable path="YSort/Character"]
 
 [editable path="Door"]
+
+[editable path="camera_limits"]

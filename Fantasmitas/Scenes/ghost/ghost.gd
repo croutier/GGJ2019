@@ -5,7 +5,16 @@ const quest = preload("res://Autoload/quest.gd")
 
 #enum Ghosts {GHOST_BUTLER, GHOST_MOTHER, GHOST_COOK, GHOST_DAUGHTER, GHOST_DOG, GHOST_WIFE, GHOST_ARTHUR}
 export(quest.Ghosts) var ghost_id = 0
+export(Texture) var memory setget _set_memory, _get_memory
+
+func _set_memory(tex):
+	$Memory/TextureRect.texture = tex
+
+func _get_memory():
+	return $Memory/TextureRect.texture
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	if Quest.get_fulfilled_ghost_request(ghost_id) and ghost_id == Quest.Ghosts.GHOST_BUTLER:
 		if owner.has_node("CastleDoor"):

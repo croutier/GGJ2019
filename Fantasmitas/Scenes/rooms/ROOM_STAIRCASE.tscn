@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_stairs.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,6 +26,9 @@ texture = ExtResource( 2 )
 
 [node name="Character" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -539.258, 830.857 )
+
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 1.25, 1.25 )
 
 [node name="SpawnWest" parent="." instance=ExtResource( 4 )]
 position = Vector2( 297.398, 1098.56 )
@@ -60,7 +64,19 @@ polygon = PoolVector2Array( 1250, 120, 820, 120, 460, 510, 460, 1290, -250, 1290
 position = Vector2( 0, 4.20477 )
 polygon = PoolVector2Array( 1260, -50, 810, -50, 450, 290, 160, 290, 160, 1060, -260, 1060, -255.753, -382.134, 1265.95, -378.339 )
 
+[node name="camera_limits" parent="." instance=ExtResource( 6 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( -240, -370 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 1220, 1370 )
+
+
+[editable path="YSort/Character"]
 
 [editable path="DoorWest"]
 
 [editable path="DoorEast"]
+
+[editable path="camera_limits"]

@@ -48,6 +48,7 @@ Inventory="*res://Autoload/inventory.gd"
 Quest="*res://Autoload/quest.gd"
 ScenePreloader="*res://Autoload/scene_preloader.gd"
 Music="*res://Scenes/music/Music.tscn"
+MouseInput="*res://Autoload/mouse_input.gd"
 
 [debug]
 

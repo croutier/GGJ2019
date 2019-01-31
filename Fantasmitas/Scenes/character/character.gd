@@ -6,6 +6,11 @@ extends KinematicBody2D
 onready var anim_controller = $AnimationPlayer
 onready var area2D = $Area2D
 var can_move = true
+var mouse_motion = {
+	last_pos = Vector2(),
+	movement = Vector2(),
+	animation = "stop"
+	}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Area2D.connect("body_entered", self, "_on_body_enter")
@@ -31,8 +36,8 @@ func _process(delta):
 	elif(Input.is_action_pressed("ui_down")):
 		movement = Vector2(0,1)
 		_set_anim("D_walk_anim")
-	elif Input.is_action_pressed("click"):
-		var mouse_motion = _get_mouse_motion(get_global_mouse_position() - global_position)
+	elif MouseInput.active:
+		_get_mouse_motion(MouseInput.movement)
 		movement = mouse_motion.movement
 		_set_anim(mouse_motion.animation)
 	else:
@@ -63,8 +68,7 @@ func _on_body_enter(body):
 		
 	pass
 
-		
-func _get_mouse_motion(mouse_pos:Vector2) -> Dictionary:
+func _get_mouse_motion(mouse_pos:Vector2) -> void:
 	var movement = mouse_pos.normalized()
 	var animation = "stop"
 	if abs(mouse_pos.x) > abs(mouse_pos.y):
@@ -79,4 +83,5 @@ func _get_mouse_motion(mouse_pos:Vector2) -> Dictionary:
 			animation = "D_walk_anim"
 		else:
 			animation = "U_walk_anim"
-	return { "movement": movement, "animation": animation }
+	mouse_motion.movement = movement
+	mouse_motion.animation = animation

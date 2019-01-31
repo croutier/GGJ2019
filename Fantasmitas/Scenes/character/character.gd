@@ -31,9 +31,12 @@ func _process(delta):
 	elif(Input.is_action_pressed("ui_down")):
 		movement = Vector2(0,1)
 		_set_anim("D_walk_anim")
+	elif Input.is_action_pressed("click"):
+		var mouse_motion = _get_mouse_motion(get_global_mouse_position() - global_position)
+		movement = mouse_motion.movement
+		_set_anim(mouse_motion.animation)
 	else:
 		_set_anim("stop")
-		pass
 
 	#move_and_collide(movement *800 *delta)
 	var running = int (Input.is_key_pressed(KEY_SHIFT))
@@ -59,3 +62,21 @@ func _on_body_enter(body):
 		body.interact()
 		
 	pass
+
+		
+func _get_mouse_motion(mouse_pos:Vector2) -> Dictionary:
+	var movement = mouse_pos.normalized()
+	var animation = "stop"
+	if abs(mouse_pos.x) > abs(mouse_pos.y):
+		movement.y = 0
+		if movement.x > 0:
+			animation = "R_walk_anim"
+		else:
+			animation = "L_walk_anim"
+	else:
+		movement.x = 0
+		if movement.y > 0:
+			animation = "D_walk_anim"
+		else:
+			animation = "U_walk_anim"
+	return { "movement": movement, "animation": animation }

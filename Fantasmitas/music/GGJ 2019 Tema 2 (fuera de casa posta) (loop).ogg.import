@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GGJ 2019 Tema 2 (fuera de casa posta) (loop).ogg-4be81bb0191ee1c6d733deaa9417b807.oggstr"
+
+[deps]
+
+source_file="res://music/GGJ 2019 Tema 2 (fuera de casa posta) (loop).ogg"
+dest_files=[ "res://.import/GGJ 2019 Tema 2 (fuera de casa posta) (loop).ogg-4be81bb0191ee1c6d733deaa9417b807.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

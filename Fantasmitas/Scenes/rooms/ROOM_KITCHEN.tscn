@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_kitchen.jpg" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,15 +17,19 @@ extents = Vector2( 93.9837, 22.7979 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 153.228, 301.647 )
+extents = Vector2( 158.533, 370 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-extents = Vector2( 60.4764, 108.195 )
+extents = Vector2( 1099.62, 153.954 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
-extents = Vector2( 129.377, 97.595 )
+extents = Vector2( 75.5001, 149.561 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 148.732, 130.964 )
 
 [node name="ROOM_KITCHEN" type="Node2D"]
 script = ExtResource( 1 )
@@ -33,19 +38,23 @@ script = ExtResource( 1 )
 position = Vector2( 75.2712, 391.713 )
 texture = ExtResource( 2 )
 
-[node name="GHOST_COOK" parent="." instance=ExtResource( 3 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="GHOST_COOK" parent="YSort" instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( -982.947, 470.83 )
 ghost_id = 2
+memory = ExtResource( 4 )
 
-[node name="TextureRect" parent="GHOST_COOK/Memory" index="0"]
-texture = ExtResource( 4 )
-
-[node name="ITEM_COLLAR" parent="." instance=ExtResource( 5 )]
+[node name="ITEM_COLLAR" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 82.2014, 45.757 )
 type = 2
 
-[node name="Character" parent="." instance=ExtResource( 6 )]
+[node name="Character" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 65.7389, 850.665 )
+
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 1.5, 1.5 )
 
 [node name="GhostSpawnPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 82.4468, 264.347 )
@@ -61,6 +70,7 @@ position = Vector2( 56.3295, 954.372 )
 spawn_id = 2
 
 [node name="Door" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 58.3005, 1046.35 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_DINING_ROOM.tscn"
 
@@ -68,37 +78,55 @@ on_enter_load_scene = "res://Scenes/rooms/ROOM_DINING_ROOM.tscn"
 position = Vector2( 0, -3.09088 )
 shape = SubResource( 1 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mode = 1
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
 position = Vector2( -550.821, -235.465 )
 build_mode = 1
-polygon = PoolVector2Array( -16.6299, 29.1437, -12.425, 378.137, 523.846, 373.723, 504.758, 302.452, 790.68, 302.452, 722.598, 389.623, 1257.41, 378.137, 1257.41, -25.5179, -11.1797, -16.5348 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( -555.112, 156.212 )
-polygon = PoolVector2Array( 1.9729, 23.5907, -9.18506, 891.128, 1279.57, 902.286, 1260.04, -7.09396, 1315.83, -7.09396, 1321.41, 944.128, -62.1858, 935.76, -59.3962, -15.4625, 2.01648, -5.47913 )
+polygon = PoolVector2Array( 0.820984, -144.535, 0.820984, 405.465, 460.821, 405.465, 510.821, 305.465, 750.821, 305.465, 790.821, 405.465, 1280.82, 405.465, 1280.82, -154.535 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -389.555, 519.406 )
+position = Vector2( -391.406, 480 )
 shape = SubResource( 2 )
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 77.1815, 1196.39 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 863.468, 435.336 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -692.286, 435.336 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 548.557, 527.356 )
+position = Vector2( 548.557, 471.869 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -471.706, 946.062 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 556.507, 922.211 )
+position = Vector2( -478.508, 903.89 )
 shape = SubResource( 4 )
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 567.611, 920.36 )
+shape = SubResource( 5 )
 
-[editable path="GHOST_COOK"]
+[node name="camera_limits" parent="." instance=ExtResource( 10 )]
 
-[editable path="GHOST_COOK/Memory"]
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( -810, -420 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 960, 1240 )
+
+
+[editable path="YSort/Character"]
 
 [editable path="Door"]
+
+[editable path="camera_limits"]

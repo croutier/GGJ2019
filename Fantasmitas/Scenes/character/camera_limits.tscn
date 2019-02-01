@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="camera_limits" type="Node2D" groups=[
+"camera_limits",
+]]
+
+[node name="top_left" type="Position2D" parent="."]
+
+[node name="bottom_right" type="Position2D" parent="."]
+

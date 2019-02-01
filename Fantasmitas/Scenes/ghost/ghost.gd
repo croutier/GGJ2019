@@ -5,28 +5,42 @@ const quest = preload("res://Autoload/quest.gd")
 
 #enum Ghosts {GHOST_BUTLER, GHOST_MOTHER, GHOST_COOK, GHOST_DAUGHTER, GHOST_DOG, GHOST_WIFE, GHOST_ARTHUR}
 export(quest.Ghosts) var ghost_id = 0
+export(Texture) var memory setget _set_memory, _get_memory
+
+func _set_memory(tex):
+	$Memory/TextureRect.texture = tex
+
+func _get_memory():
+	return $Memory/TextureRect.texture
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	if Quest.get_fulfilled_ghost_request(ghost_id) and ghost_id == Quest.Ghosts.GHOST_BUTLER:
-		get_parent().get_node("Door2").is_active = true
-		if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
-			_become_human()
+		if owner.has_node("CastleDoor"):
+			owner.get_node("CastleDoor").is_active = true
+	if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
+		_become_human()
 		
 	pass # Replace with function body.
 func _become_human():
 	match ghost_id:
 		Quest.Ghosts.GHOST_BUTLER:
 			$AnimationPlayer.play("Butler")
-		Quest.Ghost.GHOST_MOTHER:
+		Quest.Ghosts.GHOST_MOTHER:
 			$AnimationPlayer.play("Mother")
-		Quest.Ghost.GHOST_COOK:
-			$AnimationPlayer.play("CooK")				
-		Quest.Ghost.GHOST_DOG:
+		Quest.Ghosts.GHOST_COOK:
+			$AnimationPlayer.play("Cook")
+		Quest.Ghosts.GHOST_DOG:
 			$AnimationPlayer.play("Dog")
-		Quest.Ghost.GHOST_WIFE:
+		Quest.Ghosts.GHOST_WIFE:
 			$AnimationPlayer.play("Wife")
-					
-					
+		Quest.Ghosts.GHOST_DAUGHTER:
+			$AnimationPlayer.play("Daughter")
+		_:
+			printerr("Matched no ghost to turn into human")
+	return
+
 func interact():
 	if(Quest.get_fulfilled_ghost_request(ghost_id)):
 		return
@@ -41,26 +55,25 @@ func interact():
 		_show_item_needed()
 	
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
 func _change_state():
 	Quest.get_ghost_status(ghost_id)
+	get_tree().set_group("character", "can_move", false)
 	$AnimationPlayer.play("fade")
+	yield($AnimationPlayer, "animation_finished")
+	get_tree().set_group("character", "can_move", true)
+	_become_human()
 	pass
 
 func fade_ended():
-	_become_human()
 	if ghost_id == Quest.Ghosts.GHOST_BUTLER:
-		get_parent().get_node("Door2").is_active = true
+		owner.get_node("CastleDoor").is_active = true
 	if(ghost_id == Quest.Ghosts.GHOST_WIFE):
 		Quest.add_current_ghost_quests(Quest.Ghosts.GHOST_ARTHUR)
-		var item = get_parent().get_tree().get_nodes_in_group("item")		
+		var item = get_parent().get_tree().get_nodes_in_group("item")
 		item[0].enabled = true
 	pass
-func midle_fade():
-	var memories = get_parent().get_tree().get_nodes_in_group("memory")
-	memories[0].visible = true
+
 func _show_item_needed():
 	Inventory.activate_item(Quest.get_ghost_item(ghost_id))
 	$AnimationPlayer.play("show_hint")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_pantry.jpg" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/rooms/trap_door.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,6 +17,10 @@ extents = Vector2( 49.8318, 135.856 )
 extents = Vector2( 119.553, 116.055 )
 
 [sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 1491.66, 153.543 )
+
+[sub_resource type="RectangleShape2D" id=4]
 
 extents = Vector2( 99.6246, 78.1899 )
 
@@ -28,8 +33,13 @@ script = ExtResource( 1 )
 position = Vector2( 987.504, 250.836 )
 texture = ExtResource( 2 )
 
-[node name="Character" parent="." instance=ExtResource( 3 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Character" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 2804.7, 414.649 )
+
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 1.5, 1.5 )
 
 [node name="SpawnEast" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1769.32, 985.69 )
@@ -41,6 +51,7 @@ position = Vector2( 1221.65, 558.839 )
 spawn_id = 3
 
 [node name="DoorEast" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 1907.72, 982.381 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_MAIN_LOBBY.tscn"
 on_enter_set_spawn_point = 3
@@ -50,6 +61,7 @@ position = Vector2( 5.87256, 8.80896 )
 shape = SubResource( 1 )
 
 [node name="TrapDoor" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 934.376, 567.853 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_BASEMENT.tscn"
 on_enter_set_spawn_point = 1
@@ -59,23 +71,54 @@ is_active = false
 position = Vector2( -10.3247, -20.6492 )
 shape = SubResource( 2 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mode = 1
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( 324.453, 25.2352 )
-polygon = PoolVector2Array( 13.3482, -9.50574, 1239.06, -2.29565, 1231.85, -164.522, 1577.93, -160.917, 1592.35, 779.997, 1592.35, 1241.44, -22.7021, 1227.02, -33.5173, 1277.49, 1646.43, 1281.1, 1639.22, -831.454, -303.895, -820.639, -296.685, 1270.28, -105.618, 1266.68, -102.013, -38.346, -47.9374, -27.5309, -73.1727, 1198.18, -29.9122, 1216.21, -19.0971, 15.7295, 12.2378, -0.629143 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 983.911, 1395.98 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 983.911, -264.899 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 67.2761, -130.347 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 151.371, 634.917 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 2051.92, 634.917 )
+rotation = 1.5708
+shape = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1748.64, -35.1134 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 21.0681, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
+
+[node name="camera_limits" parent="." instance=ExtResource( 7 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( 19.2903, -791.179 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 1957.54, 1294.21 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+
+[editable path="YSort/Character"]
 
 [editable path="DoorEast"]
 
 [editable path="TrapDoor"]
+
+[editable path="camera_limits"]

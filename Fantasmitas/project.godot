@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Fantasmitas"
+config/name="Memories"
 run/main_scene="res://Scenes/rooms/ROOM_ROAD.tscn"
 config/icon="res://icon.png"
 
@@ -46,7 +46,33 @@ config/icon="res://icon.png"
 
 Inventory="*res://Autoload/inventory.gd"
 Quest="*res://Autoload/quest.gd"
-MainTheme="*res://Scenes/music/AudioStreamPlayer.tscn"
+ScenePreloader="*res://Autoload/scene_preloader.gd"
+Music="*res://Scenes/music/Music.tscn"
+MouseInput="*res://Autoload/mouse_input.gd"
+
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_class_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

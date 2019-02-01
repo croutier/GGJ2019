@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://art/ref_room_dining_room.jpg" type="Texture" id=5]
+[ext_resource path="res://art/ref_room_dining_room.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,17 +19,37 @@ extents = Vector2( 68, 157.201 )
 
 extents = Vector2( 111.884, 56.5228 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=4]
 
-extents = Vector2( 316.96, 1326.93 )
+radius = 169.949
+height = 286.96
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 1139.53, 309.183 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 402.87, 2158.8 )
 
 [node name="ROOM_DINING_ROOM" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Character" parent="." instance=ExtResource( 2 )]
+[node name="ref_room_dining_room" type="Sprite" parent="."]
+position = Vector2( 718.504, 945.209 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Character" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -405.513, 957.732 )
 
-[node name="DoorSouth" parent="." instance=ExtResource( 3 )]
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 2.5, 2.5 )
+
+[node name="DoorSouth" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
 position = Vector2( -609.518, 943.758 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_MAIN_LOBBY.tscn"
 
@@ -36,7 +57,8 @@ on_enter_load_scene = "res://Scenes/rooms/ROOM_MAIN_LOBBY.tscn"
 position = Vector2( -0.000244141, 0 )
 shape = SubResource( 1 )
 
-[node name="DoorEast" parent="." instance=ExtResource( 3 )]
+[node name="DoorEast" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
 position = Vector2( 2014.8, 940.685 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_HALL.tscn"
 on_enter_set_spawn_point = 3
@@ -44,7 +66,8 @@ on_enter_set_spawn_point = 3
 [node name="CollisionShape2D" parent="DoorEast" index="0"]
 shape = SubResource( 2 )
 
-[node name="DoorNorth" parent="." instance=ExtResource( 3 )]
+[node name="DoorNorth" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
 position = Vector2( 688.22, -800.583 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_KITCHEN.tscn"
 on_enter_set_spawn_point = 2
@@ -52,37 +75,68 @@ on_enter_set_spawn_point = 2
 [node name="CollisionShape2D" parent="DoorNorth" index="0"]
 shape = SubResource( 3 )
 
-[node name="SpawnEast" parent="." instance=ExtResource( 4 )]
+[node name="SpawnEast" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1839.94, 962.104 )
 spawn_id = 1
 
-[node name="SpawnNorth" parent="." instance=ExtResource( 4 )]
+[node name="SpawnNorth" parent="." instance=ExtResource( 5 )]
 position = Vector2( 688.22, -646.084 )
 
-[node name="SpawnSouth" parent="." instance=ExtResource( 4 )]
+[node name="SpawnSouth" parent="." instance=ExtResource( 5 )]
 position = Vector2( -431.191, 934.364 )
 spawn_id = 2
 
-[node name="ref_room_dining_room" type="Sprite" parent="."]
-position = Vector2( 718.504, 945.209 )
-z_index = -1
-texture = ExtResource( 5 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mode = 1
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2( -651.734, -904.018 )
-build_mode = 1
-polygon = PoolVector2Array( 28.9052, -0.31311, 2749.37, -8.7226, 2753.58, 3708.27, -17.3462, 3708.27, -8.04871, 15.3373, 20.3125, 3.36261, 41.741, 84.6647, 39.2623, 3647.98, 2671.59, 3647.98, 2669.06, 97.8297, 46.7339, 81.0182 )
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 705.414, 979.525 )
+position = Vector2( 702.399, -159.962 )
+rotation = 1.5708
 shape = SubResource( 4 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 702.399, 2127.76 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 702.399, 974.251 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 2417.42, 974.251 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -997.833, 974.251 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 695.008, -1221.27 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 695.008, 3147.59 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="camera_limits" parent="." instance=ExtResource( 6 )]
+
+[node name="top_left" parent="camera_limits" index="0"]
+position = Vector2( -604.979, -802.523 )
+
+[node name="bottom_right" parent="camera_limits" index="1"]
+position = Vector2( 2012.48, 2753.27 )
+
+
+[editable path="YSort/Character"]
 
 [editable path="DoorSouth"]
 
 [editable path="DoorEast"]
 
 [editable path="DoorNorth"]
+
+[editable path="camera_limits"]

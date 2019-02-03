@@ -17,10 +17,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.001, 0.5, 1, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 0, 1, 2, 3 ]
+"values": [ 1, 2, 3, 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Area2D:position")
@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 6, 7 ]
+"values": [ 5, 6, 7, 4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Area2D:position")
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 10, 11 ]
+"values": [ 9, 10, 11, 8 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Area2D:position")
@@ -113,7 +113,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 12, 13, 14, 15 ]
+"values": [ 13, 14, 15, 12 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Area2D:position")
@@ -185,14 +185,14 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 3
+frame = 15
 region_rect = Rect2( 582, 102, 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, 108 )
+position = Vector2( 0, -108 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 7 )

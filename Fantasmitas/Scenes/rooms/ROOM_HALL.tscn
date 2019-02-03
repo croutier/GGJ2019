@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_small_lobby.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/Memories/M_4.jpg" type="Texture" id=4]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=9]
+[ext_resource path="res://art/Items/teddybear.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -48,34 +49,36 @@ editor/display_folded = true
 position = Vector2( -977.262, 331.848 )
 ghost_id = 3
 memory = ExtResource( 4 )
+item = ExtResource( 5 )
+color_tint = Color( 0.65098, 0.811765, 0.882353, 1 )
 
-[node name="Character" parent="YSort" instance=ExtResource( 5 )]
+[node name="Character" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( -1353.43, 940.738 )
 
 [node name="Camera2D" parent="YSort/Character" index="4"]
 zoom = Vector2( 1.75, 1.75 )
 
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 6 )]
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1370, 750.401 )
 ghost_id = 3
 
-[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 6 )]
+[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 280, 540 )
 ghost_id = 3
 ghost_status_id = 1
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 7 )]
+[node name="SpawnPoint" parent="." instance=ExtResource( 8 )]
 position = Vector2( -544.28, 937.985 )
 spawn_id = 3
 
-[node name="SpawnPoint2" parent="." instance=ExtResource( 7 )]
+[node name="SpawnPoint2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1341.15, 743.314 )
 spawn_id = 1
 
-[node name="SpawnPoint3" parent="." instance=ExtResource( 7 )]
+[node name="SpawnPoint3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 402.042, 168.317 )
 
-[node name="Door" parent="." instance=ExtResource( 8 )]
+[node name="Door" parent="." instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 403.841, 79.9905 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_PLAYROOM.tscn"
@@ -84,7 +87,7 @@ on_enter_set_spawn_point = 2
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 1 )
 
-[node name="Door2" parent="." instance=ExtResource( 8 )]
+[node name="Door2" parent="." instance=ExtResource( 9 )]
 position = Vector2( -619.985, 930.775 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_DINING_ROOM.tscn"
 on_enter_set_spawn_point = 1
@@ -92,7 +95,7 @@ on_enter_set_spawn_point = 1
 [node name="CollisionShape2D" parent="Door2" index="0"]
 shape = SubResource( 2 )
 
-[node name="Door3" parent="." instance=ExtResource( 8 )]
+[node name="Door3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1451.21, 750.524 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_STAIRCASE.tscn"
 on_enter_set_spawn_point = 3
@@ -137,7 +140,7 @@ position = Vector2( -785.518, 698.239 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
-[node name="camera_limits" parent="." instance=ExtResource( 9 )]
+[node name="camera_limits" parent="." instance=ExtResource( 10 )]
 
 [node name="top_left" parent="camera_limits" index="0"]
 position = Vector2( -660, -260 )

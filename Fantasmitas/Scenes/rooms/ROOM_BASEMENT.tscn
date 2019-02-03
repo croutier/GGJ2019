@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_basement.jpg" type="Texture" id=2]
-[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/Backgrounds/basement.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/Backgrounds/basement_stairs.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -31,19 +33,31 @@ script = ExtResource( 1 )
 position = Vector2( 405.417, 368.945 )
 texture = ExtResource( 2 )
 
+[node name="basement" type="Sprite" parent="."]
+position = Vector2( 414.071, 370.491 )
+scale = Vector2( 1.91677, 1.91677 )
+texture = ExtResource( 3 )
+
 [node name="YSort" type="YSort" parent="."]
 
-[node name="ITEM_TEDDY_BEAR" parent="YSort" instance=ExtResource( 3 )]
+[node name="ITEM_TEDDY_BEAR" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -386.781, -45.7029 )
 type = 4
 
-[node name="Character" parent="YSort" instance=ExtResource( 4 )]
+[node name="Character" parent="YSort" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 364.435, 839.747 )
 
 [node name="Camera2D" parent="YSort/Character" index="4"]
 zoom = Vector2( 1.5, 1.5 )
 
-[node name="Door" parent="." instance=ExtResource( 5 )]
+[node name="basement_stairs" type="Sprite" parent="."]
+position = Vector2( 415.866, 571.751 )
+scale = Vector2( 1.91677, 1.91677 )
+texture = ExtResource( 6 )
+offset = Vector2( -5.08408, -362.154 )
+
+[node name="Door" parent="." instance=ExtResource( 7 )]
 position = Vector2( 353.211, 390.079 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_PANTRY.tscn"
 on_enter_set_spawn_point = 3
@@ -51,7 +65,7 @@ on_enter_set_spawn_point = 3
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 1 )
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 6 )]
+[node name="SpawnPoint" parent="." instance=ExtResource( 8 )]
 position = Vector2( 357.336, 832.147 )
 spawn_id = 1
 
@@ -79,7 +93,7 @@ shape = SubResource( 3 )
 position = Vector2( 850.031, 516.09 )
 shape = SubResource( 4 )
 
-[node name="camera_limits" parent="." instance=ExtResource( 7 )]
+[node name="camera_limits" parent="." instance=ExtResource( 9 )]
 
 [node name="top_left" parent="camera_limits" index="0"]
 position = Vector2( -582.374, -512.489 )

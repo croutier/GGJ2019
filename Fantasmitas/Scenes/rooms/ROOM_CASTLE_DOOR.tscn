@@ -1,14 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_entrance.jpg" type="Texture" id=2]
-[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=3]
-[ext_resource path="res://art/Memories/M_0.jpg" type="Texture" id=4]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=9]
+[ext_resource path="res://art/Backgrounds/castle_entrance.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/Memories/M_0.jpg" type="Texture" id=5]
+[ext_resource path="res://art/Items/key.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,31 +42,42 @@ position = Vector2( 2050.1, -1438.88 )
 z_index = -1
 texture = ExtResource( 2 )
 
+[node name="castle_entrance" type="Sprite" parent="."]
+position = Vector2( 1969.44, -590.125 )
+scale = Vector2( 1.86125, 1.86125 )
+texture = ExtResource( 3 )
+
 [node name="YSort" type="YSort" parent="."]
 
-[node name="GHOST_BUTLER" parent="YSort" instance=ExtResource( 3 )]
+[node name="GHOST_BUTLER" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -682.433, -371.613 )
-memory = ExtResource( 4 )
+memory = ExtResource( 5 )
+item = ExtResource( 6 )
+color_tint = Color( 0.92549, 0.529412, 0.505882, 1 )
 
-[node name="Character" parent="YSort" instance=ExtResource( 5 )]
+[node name="Character" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( -644.145, 591.473 )
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 6 )]
-position = Vector2( 144.635, 3.08447 )
+[node name="Camera2D" parent="YSort/Character" index="4"]
+zoom = Vector2( 4, 4 )
+
+[node name="SpawnPoint" parent="." instance=ExtResource( 8 )]
+position = Vector2( 931.879, 3.08447 )
 spawn_id = 3
 
-[node name="SpawnPoint1" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1951.78, -653.217 )
+[node name="SpawnPoint1" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1951.78, -119.492 )
 
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1956.76, -577.833 )
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1956.76, -44.1079 )
 
-[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2389.85, -565.219 )
+[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2389.85, -31.4939 )
 ghost_status_id = 1
 
-[node name="Door" parent="." instance=ExtResource( 8 )]
-position = Vector2( 22.5962, 6.62207 )
+[node name="Door" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
+position = Vector2( 809.841, 6.62207 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_ROAD.tscn"
 on_enter_set_spawn_point = 1
 
@@ -72,8 +85,9 @@ on_enter_set_spawn_point = 1
 position = Vector2( -30.3415, -51.2485 )
 shape = SubResource( 1 )
 
-[node name="CastleDoor" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1978.74, -811.599 )
+[node name="CastleDoor" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
+position = Vector2( 1978.74, -277.874 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_MAIN_LOBBY.tscn"
 on_enter_set_spawn_point = 2
 is_active = false
@@ -83,40 +97,41 @@ position = Vector2( 0, -57.9033 )
 shape = SubResource( 2 )
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2( 2022, 778.051 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 4244.62, -64.2948 )
+position = Vector2( 3370.65, -64.2948 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -235.058, -64.2948 )
+position = Vector2( 552.186, -64.2948 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 3365.54, -943.372 )
+position = Vector2( 3365.54, -409.647 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 571.766, -943.372 )
+position = Vector2( 571.766, -409.647 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 1980.7, -1124 )
+position = Vector2( 1980.7, -590.275 )
 shape = SubResource( 5 )
 
-[node name="camera_limits" parent="." instance=ExtResource( 9 )]
+[node name="camera_limits" parent="." instance=ExtResource( 11 )]
 
 [node name="top_left" parent="camera_limits" index="0"]
-position = Vector2( 2.26263, -1978.14 )
+position = Vector2( 192.56, -1791.34 )
 
 [node name="bottom_right" parent="camera_limits" index="1"]
-position = Vector2( 4097.45, 608.347 )
+position = Vector2( 4012.7, 601.675 )
 
+
+[editable path="YSort/Character"]
 
 [editable path="Door"]
 

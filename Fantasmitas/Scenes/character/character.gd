@@ -55,6 +55,7 @@ func _set_anim(anim):
 		return
 	if anim != anim_controller.current_animation:
 		anim_controller.play(anim,-1, 2)
+		anim_controller.seek(0.5, true)
 	pass
 
 func _on_body_enter(body):

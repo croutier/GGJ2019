@@ -6,6 +6,23 @@ const quest = preload("res://Autoload/quest.gd")
 #enum Ghosts {GHOST_BUTLER, GHOST_MOTHER, GHOST_COOK, GHOST_DAUGHTER, GHOST_DOG, GHOST_WIFE, GHOST_ARTHUR}
 export(quest.Ghosts) var ghost_id = 0
 export(Texture) var memory setget _set_memory, _get_memory
+export(Texture) var item setget _set_item, _get_item
+export(Color) var color_tint setget _set_color_tint, _get_color_tint
+
+func _set_color_tint(col):
+	call_deferred("_set_color_tint_deferred", col)
+	
+func _set_color_tint_deferred(col):
+	get_node("AnimatedSprite").self_modulate = col
+	
+func _get_color_tint():
+	return get_node("AnimatedSprite").self_modulate
+
+func _set_item(tex):
+	$hint/item_needed.texture = tex
+
+func _get_item():
+	return $hint/item_needed.texture
 
 func _set_memory(tex):
 	$Memory/TextureRect.texture = tex
@@ -20,23 +37,24 @@ func _ready():
 		if owner.has_node("CastleDoor"):
 			owner.get_node("CastleDoor").is_active = true
 	if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
+		$AnimationPlayer.play("human")
 		_become_human()
 		
 	pass # Replace with function body.
 func _become_human():
 	match ghost_id:
 		Quest.Ghosts.GHOST_BUTLER:
-			$AnimationPlayer.play("Butler")
+			$AnimatedSprite.play("Butler")
 		Quest.Ghosts.GHOST_MOTHER:
-			$AnimationPlayer.play("Mother")
+			$AnimatedSprite.play("Mother")
 		Quest.Ghosts.GHOST_COOK:
-			$AnimationPlayer.play("Cook")
+			$AnimatedSprite.play("Cook")
 		Quest.Ghosts.GHOST_DOG:
-			$AnimationPlayer.play("Dog")
+			$AnimatedSprite.play("Dog")
 		Quest.Ghosts.GHOST_WIFE:
-			$AnimationPlayer.play("Wife")
+			$AnimatedSprite.play("Wife")
 		Quest.Ghosts.GHOST_DAUGHTER:
-			$AnimationPlayer.play("Daughter")
+			$AnimatedSprite.play("Daughter")
 		_:
 			printerr("Matched no ghost to turn into human")
 	return

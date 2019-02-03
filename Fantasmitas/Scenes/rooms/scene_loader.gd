@@ -4,6 +4,7 @@ export(bool) var is_exterior = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	VisualServer.set_default_clear_color(ColorN("black"))
 	_spawn_character()
 	_spawn_ghosts()
 	_spawn_items()

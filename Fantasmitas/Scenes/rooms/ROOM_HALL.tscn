@@ -51,6 +51,7 @@ ghost_id = 3
 memory = ExtResource( 4 )
 item = ExtResource( 5 )
 color_tint = Color( 0.65098, 0.811765, 0.882353, 1 )
+memory_text = "I waited and waited for you to return, but then I fell asleep. Father, where were you?"
 
 [node name="Character" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( -1353.43, 940.738 )

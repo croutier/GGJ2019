@@ -8,6 +8,13 @@ export(quest.Ghosts) var ghost_id = 0
 export(Texture) var memory setget _set_memory, _get_memory
 export(Texture) var item setget _set_item, _get_item
 export(Color) var color_tint setget _set_color_tint, _get_color_tint
+export(String) var memory_text setget _set_memory_text, _get_memory_text
+
+func _set_memory_text(txt):
+	$Memory/TextureRect/Label.text = txt
+	
+func _get_memory_text():
+	return $Memory/TextureRect/Label.text
 
 func _set_color_tint(col):
 	call_deferred("_set_color_tint_deferred", col)
@@ -34,8 +41,8 @@ func _get_memory():
 
 func _ready():
 	if Quest.get_fulfilled_ghost_request(ghost_id) and ghost_id == Quest.Ghosts.GHOST_BUTLER:
-		if owner.has_node("CastleDoor"):
-			owner.get_node("CastleDoor").is_active = true
+		if owner.has_node("YSort/CastleDoor"):
+			owner.get_node("YSort/CastleDoor").set_active(true)
 	if(Quest.get_ghost_status(ghost_id)== Quest.GhostStatus.GHOST_STATUS_HUMAN):
 		$AnimationPlayer.play("human")
 		_become_human()
@@ -85,7 +92,7 @@ func _change_state():
 
 func fade_ended():
 	if ghost_id == Quest.Ghosts.GHOST_BUTLER:
-		owner.get_node("CastleDoor").is_active = true
+		owner.get_node("YSort/CastleDoor").set_active(true)
 	if(ghost_id == Quest.Ghosts.GHOST_WIFE):
 		Quest.add_current_ghost_quests(Quest.Ghosts.GHOST_ARTHUR)
 		var item = get_parent().get_tree().get_nodes_in_group("item")

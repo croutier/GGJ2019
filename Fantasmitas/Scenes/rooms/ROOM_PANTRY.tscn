@@ -12,9 +12,9 @@
 
 extents = Vector2( 49.8318, 135.856 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 
-extents = Vector2( 119.553, 116.055 )
+extents = Vector2( 144.512, 143.536 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -59,7 +59,6 @@ position = Vector2( 5.87256, 8.80896 )
 shape = SubResource( 1 )
 
 [node name="TrapDoor" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
 position = Vector2( 876.837, 612.114 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_BASEMENT.tscn"
 on_enter_set_spawn_point = 1
@@ -67,7 +66,7 @@ is_active = false
 
 [node name="CollisionShape2D" parent="TrapDoor" index="0"]
 position = Vector2( -10.3247, -20.6492 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 

@@ -1,14 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_road.jpg" type="Texture" id=2]
-[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=9]
+[ext_resource path="res://art/Backgrounds/castle_side.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/Items/key.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,23 +39,32 @@ position = Vector2( 573.795, 175.929 )
 z_index = -1
 texture = ExtResource( 2 )
 
+[node name="castle_side" type="Sprite" parent="."]
+position = Vector2( 4828.3, -287.704 )
+scale = Vector2( 1.60271, 1.60271 )
+texture = ExtResource( 3 )
+flip_h = true
+
 [node name="YSort" type="YSort" parent="."]
 
-[node name="ITEM_FATHERS_ASHES" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( -2166.77, -377.226 )
+[node name="ITEM_FATHERS_ASHES" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -2166.77, -277.704 )
 type = 1
 
-[node name="ITEM_KEY" parent="YSort" instance=ExtResource( 3 )]
+[node name="ITEM_KEY" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 1856.93, 453.466 )
 
-[node name="Character" parent="YSort" instance=ExtResource( 4 )]
+[node name="Item" parent="YSort/ITEM_KEY" index="1"]
+texture = ExtResource( 5 )
+
+[node name="Character" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( -3871.14, 1494.88 )
 
-[node name="Ghost" parent="YSort" instance=ExtResource( 5 )]
+[node name="Ghost" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 157.778, 4250.74 )
 ghost_id = 1
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
+[node name="Door" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( 4610.87, 559.918 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_CASTLE_DOOR.tscn"
@@ -62,19 +73,19 @@ on_enter_set_spawn_point = 3
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 1 )
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 7 )]
+[node name="SpawnPoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( -3342.16, 564.448 )
 spawn_id = 3
 
-[node name="SpawnPoint1" parent="." instance=ExtResource( 7 )]
+[node name="SpawnPoint1" parent="." instance=ExtResource( 9 )]
 position = Vector2( 4461.47, 554.392 )
 spawn_id = 1
 
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 8 )]
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 10 )]
 position = Vector2( -132.555, 1812 )
 ghost_id = 1
 
-[node name="GhostSpawnPoint1" parent="." instance=ExtResource( 8 )]
+[node name="GhostSpawnPoint1" parent="." instance=ExtResource( 10 )]
 position = Vector2( 417.891, -527.391 )
 ghost_id = 1
 ghost_status_id = 1
@@ -110,7 +121,7 @@ shape = SubResource( 4 )
 position = Vector2( 5493.63, 1192.98 )
 shape = SubResource( 4 )
 
-[node name="camera_limits" parent="." instance=ExtResource( 9 )]
+[node name="camera_limits" parent="." instance=ExtResource( 11 )]
 
 [node name="top_left" parent="camera_limits" index="0"]
 position = Vector2( -3513.22, -1027.7 )
@@ -118,6 +129,10 @@ position = Vector2( -3513.22, -1027.7 )
 [node name="bottom_right" parent="camera_limits" index="1"]
 position = Vector2( 4656.78, 1362.3 )
 
+
+[editable path="YSort/ITEM_FATHERS_ASHES"]
+
+[editable path="YSort/ITEM_KEY"]
 
 [editable path="Door"]
 

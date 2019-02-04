@@ -1,16 +1,18 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_playroom.jpg" type="Texture" id=2]
-[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=4]
-[ext_resource path="res://art/Memories/M_3.jpg" type="Texture" id=5]
-[ext_resource path="res://art/Items/collar.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/Characters/maid_dead.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/Items/necklace.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/ghost/ghost.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/Memories/M_3.jpg" type="Texture" id=7]
+[ext_resource path="res://art/Items/collar.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -41,38 +43,48 @@ texture = ExtResource( 2 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="ITEM_NECKLACE" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 349.418, 652.184 )
+[node name="maid_dead" type="Sprite" parent="YSort"]
+position = Vector2( 40.1647, 74.2953 )
+texture = ExtResource( 3 )
+
+[node name="ITEM_NECKLACE" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 302.282, 752.976 )
 type = 3
 
-[node name="GHOST_DOG" parent="YSort" instance=ExtResource( 4 )]
+[node name="Item" parent="YSort/ITEM_NECKLACE" index="1"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="GHOST_DOG" parent="YSort" instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 1902.29, 577.145 )
 ghost_id = 4
-memory = ExtResource( 5 )
-item = ExtResource( 6 )
+memory = ExtResource( 7 )
+item = ExtResource( 8 )
 color_tint = Color( 0.890196, 0.784314, 0.478431, 1 )
+memory_text = "I’m sorry master, I couldn’t chase the bad men away. If only you were here, we could have fought them together!"
 
-[node name="Character" parent="YSort" instance=ExtResource( 7 )]
+[node name="Character" parent="YSort" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 434.94, 1261.57 )
 
 [node name="Camera2D" parent="YSort/Character" index="4"]
 zoom = Vector2( 1.6, 1.6 )
 
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 8 )]
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 10 )]
 position = Vector2( 39.5787, 292.624 )
 ghost_id = 4
 
-[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 8 )]
+[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 10 )]
 position = Vector2( -199.394, 1290.37 )
 ghost_id = 4
 ghost_status_id = 1
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 9 )]
+[node name="SpawnPoint" parent="." instance=ExtResource( 11 )]
 position = Vector2( 464.329, 1298.99 )
 spawn_id = 2
 
-[node name="Door" parent="." instance=ExtResource( 10 )]
+[node name="Door" parent="." instance=ExtResource( 12 )]
 position = Vector2( 577.715, 1310.87 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_HALL.tscn"
 
@@ -81,7 +93,6 @@ position = Vector2( -3.25351, -3.2536 )
 shape = SubResource( 1 )
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2( -176.813, 756.23 )
@@ -110,14 +121,14 @@ position = Vector2( -147.266, 1325.39 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 428.097, 239.735 )
+position = Vector2( 369.37, 239.735 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -366.452, 239.735 )
+position = Vector2( -290.108, 239.735 )
 shape = SubResource( 5 )
 
-[node name="camera_limits" parent="." instance=ExtResource( 11 )]
+[node name="camera_limits" parent="." instance=ExtResource( 13 )]
 
 [node name="top_left" parent="camera_limits" index="0"]
 position = Vector2( -1320.32, -243.834 )
@@ -125,6 +136,8 @@ position = Vector2( -1320.32, -243.834 )
 [node name="bottom_right" parent="camera_limits" index="1"]
 position = Vector2( 1313.41, 1723.19 )
 
+
+[editable path="YSort/ITEM_NECKLACE"]
 
 [editable path="YSort/Character"]
 

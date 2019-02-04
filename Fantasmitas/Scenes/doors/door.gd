@@ -19,6 +19,7 @@ func _ready():
 
 func set_active(active):
 	is_active = active
+	$EctoDoor.visible = !active
 
 func _on_Door_body_entered(body:PhysicsBody2D):
 	if body.is_in_group("character") and is_active:

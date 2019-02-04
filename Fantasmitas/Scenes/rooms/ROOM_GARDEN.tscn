@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_garden.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/Items/ring.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -38,14 +39,18 @@ position = Vector2( -1967.82, 937.657 )
 zoom = Vector2( 2, 2 )
 
 [node name="ITEM_RING" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 732.453, 500.286 )
+position = Vector2( 689.028, 671.044 )
 type = 5
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 5 )]
+[node name="Item" parent="YSort/ITEM_RING" index="1"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="SpawnPoint" parent="." instance=ExtResource( 6 )]
 position = Vector2( -1073.5, 1102.4 )
 spawn_id = 3
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
+[node name="Door" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
 position = Vector2( -1219.67, 1118.96 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_MAIN_LOBBY.tscn"
@@ -89,7 +94,7 @@ position = Vector2( -292.018, -1152.35 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="camera_limits" parent="." instance=ExtResource( 7 )]
+[node name="camera_limits" parent="." instance=ExtResource( 8 )]
 
 [node name="top_left" parent="camera_limits" index="0"]
 position = Vector2( -1353.45, -236.736 )
@@ -99,6 +104,8 @@ position = Vector2( 1916.32, 1687.75 )
 
 
 [editable path="YSort/Character"]
+
+[editable path="YSort/ITEM_RING"]
 
 [editable path="Door"]
 

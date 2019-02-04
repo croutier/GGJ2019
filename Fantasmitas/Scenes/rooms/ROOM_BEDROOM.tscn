@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/rooms/scene_loader.gd" type="Script" id=1]
 [ext_resource path="res://art/ref_room_bedroom.jpg" type="Texture" id=2]
@@ -6,11 +6,12 @@
 [ext_resource path="res://art/Memories/M_5.jpg" type="Texture" id=4]
 [ext_resource path="res://art/Items/ring.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/item/item.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/Items/letter.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/character/character.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/spawn/SpawnPoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/doors/Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -32,30 +33,31 @@ ghost_id = 5
 memory = ExtResource( 4 )
 item = ExtResource( 5 )
 color_tint = Color( 0.847059, 0.584314, 0.458824, 1 )
+memory_text = "Welcome back my love. It was not your fault…"
 
 [node name="ITEM_LETTER" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 2726.38, 1183.15 )
 type = 6
 
-[node name="Character" parent="YSort" instance=ExtResource( 7 )]
+[node name="Item" parent="YSort/ITEM_LETTER" index="1"]
+texture = ExtResource( 7 )
+
+[node name="Character" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( -543.403, 343.202 )
 
-[node name="Camera2D" parent="YSort/Character" index="4"]
-zoom = Vector2( 1.75, 1.75 )
-
-[node name="GhostSpawnPoint" parent="." instance=ExtResource( 8 )]
+[node name="GhostSpawnPoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2702.76, 1448.34 )
 ghost_id = 5
 
-[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 8 )]
+[node name="GhostSpawnPoint2" parent="." instance=ExtResource( 9 )]
 position = Vector2( -446.641, 2043.25 )
 z_index = -1
 
-[node name="SpawnPoint" parent="." instance=ExtResource( 9 )]
+[node name="SpawnPoint" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1124.41, 1408.14 )
 spawn_id = 3
 
-[node name="Door" parent="." instance=ExtResource( 10 )]
+[node name="Door" parent="." instance=ExtResource( 11 )]
 position = Vector2( 971.85, 1414.81 )
 on_enter_load_scene = "res://Scenes/rooms/ROOM_STAIRCASE.tscn"
 on_enter_set_spawn_point = 1
@@ -72,14 +74,16 @@ polygon = PoolVector2Array( -14.6013, -10.3328, -14.6013, 1379.67, 1865.4, 1379.
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
 polygon = PoolVector2Array( -14.6013, -10.3328, 1045.4, -10.3328, 1045.4, 779.667, 1665.4, 779.667, 1675.4, -0.332764, 2235.4, -0.332764, 2235.4, -410.333, -404.601, -410.333, -404.601, -60.3328 )
 
-[node name="camera_limits" parent="." instance=ExtResource( 11 )]
+[node name="camera_limits" parent="." instance=ExtResource( 12 )]
 
 [node name="top_left" parent="camera_limits" index="0"]
-position = Vector2( 845.916, 722.147 )
+position = Vector2( -434.084, -37.8528 )
 
 [node name="bottom_right" parent="camera_limits" index="1"]
-position = Vector2( 2955.92, 2532.15 )
+position = Vector2( 4035.92, 3472.15 )
 
+
+[editable path="YSort/ITEM_LETTER"]
 
 [editable path="YSort/Character"]
 

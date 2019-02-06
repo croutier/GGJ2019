@@ -77,6 +77,11 @@ click={
 
 pointing/emulate_touch_from_mouse=true
 
+[locale]
+
+translations=PoolStringArray( "res://l10n/Memories l10n.en.translation", "res://l10n/Memories l10n.es.translation" )
+locale_filter=[ 1, [ "en", "es" ] ]
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

@@ -14,11 +14,11 @@
 [ext_resource path="res://Scenes/spawn/GhostSpawnPoint.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/character/camera_limits.tscn" type="PackedScene" id=13]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 343.13, 50.286 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -27,11 +27,11 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 68, 652.024 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 extents = Vector2( 2347.48, 208.396 )
 
@@ -54,13 +54,14 @@ on_enter_set_spawn_point = 2
 is_active = false
 
 [node name="CollisionShape2D" parent="YSort/CastleDoor" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="EctoDoor" type="AnimatedSprite" parent="YSort/CastleDoor"]
 modulate = Color( 1, 1, 1, 0.603922 )
 position = Vector2( 3.12988, -160.286 )
 scale = Vector2( 1.861, 1.861 )
-frames = SubResource( 5 )
+frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="GHOST_BUTLER" parent="YSort" instance=ExtResource( 7 )]
@@ -68,7 +69,7 @@ position = Vector2( -682.433, -371.613 )
 memory = ExtResource( 8 )
 item = ExtResource( 9 )
 color_tint = Color( 0.92549, 0.529412, 0.505882, 1 )
-memory_text = "I gave my life for my master’s family, but that was not enough. Dear lord, I have failed you!"
+memory_text = "MEM_BUTLER"
 
 [node name="Character" parent="YSort" instance=ExtResource( 10 )]
 editor/display_folded = true
@@ -98,7 +99,7 @@ on_enter_set_spawn_point = 1
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 position = Vector2( -30.3415, -51.2485 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 
@@ -107,7 +108,7 @@ polygon = PoolVector2Array( -308.13, 611.84, -308.13, -38.16, 171.87, -188.16, 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2( 2022, 778.051 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="camera_limits" parent="." instance=ExtResource( 13 )]
 

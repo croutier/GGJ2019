@@ -33,7 +33,7 @@ ghost_id = 5
 memory = ExtResource( 4 )
 item = ExtResource( 5 )
 color_tint = Color( 0.847059, 0.584314, 0.458824, 1 )
-memory_text = "Welcome back my love. It was not your fault…"
+memory_text = "MEM_WIFE"
 
 [node name="ITEM_LETTER" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 2726.38, 1183.15 )

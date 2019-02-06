@@ -61,7 +61,7 @@ ghost_id = 1
 memory = ExtResource( 4 )
 item = ExtResource( 5 )
 color_tint = Color( 0.584314, 0.556863, 0.631373, 1 )
-memory_text = "I wish your father was alive to watch you become the mighty knight you are today. I regret sending you to a war that couldn’t be won"
+memory_text = "MEM_MOTHER"
 
 [node name="hint" parent="YSort/GHOST_MOTHER" index="3"]
 frame = 0

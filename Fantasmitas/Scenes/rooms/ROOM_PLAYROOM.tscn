@@ -62,7 +62,7 @@ ghost_id = 4
 memory = ExtResource( 7 )
 item = ExtResource( 8 )
 color_tint = Color( 0.890196, 0.784314, 0.478431, 1 )
-memory_text = "I’m sorry master, I couldn’t chase the bad men away. If only you were here, we could have fought them together!"
+memory_text = "MEM_DOG"
 
 [node name="Character" parent="YSort" instance=ExtResource( 9 )]
 editor/display_folded = true
